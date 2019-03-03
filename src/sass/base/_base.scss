@@ -1,0 +1,20 @@
+html,
+body {
+    font: normal 400 16px/20px 'Open Sans', sans-serif;
+    color: getColor('dark');
+    background-color: #181818;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: getColor('dark');
+
+    // text-decoration: underline;
+
+    &:hover,
+    &:focus {
+        color: getColor('dark', 'primary');
+        text-decoration: none;
+    }
+}

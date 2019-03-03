@@ -1,0 +1,67 @@
+.button {
+	color: #fff;
+	font-size: rem(14px);
+	font-weight: 600;
+	line-height: rem(13px);
+	border-radius: 3px;
+	padding: 16px 30px;
+	min-width: 200px;
+	text-transform: uppercase;
+
+	&:hover,
+	&:focus {
+		color: #fff;
+	}
+
+	&[disabled] {
+		cursor: no-drop;
+		opacity: 0.65;
+
+		&:hover,
+		&:focus {
+			opacity: 0.65;
+		}
+	}
+
+	&-primary {
+		background: getColor('brand', 'base');
+		&-1 {
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+	}
+
+	&-secondary {
+		background: getColor('brand', 'primary');
+		border-color: getColor('brand', 'primary');
+	}
+
+	&-tertiary {
+		border-color: getColor('dark', 'primary');
+		transition: background-color 0.2s ease;
+
+		&:hover,
+		&:focus {
+			opacity: 0.9;
+			background-color: getColor('dark', 'secondary');
+		}
+	}
+
+	&-transparent {
+		border-color: getColor('light', 'base', 'medium');
+		transition: border-color 0.4s ease;
+		&:hover,
+		&:focus {
+			border-color: getColor('light', 'base');
+		}
+	}
+
+	&-social {
+		&--facebook {
+			background-color: #4285f4;
+		}
+		&--google {
+			background-color: #00a1f1;
+		}
+	}
+}

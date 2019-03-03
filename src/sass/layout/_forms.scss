@@ -1,0 +1,51 @@
+.uxt-panel {
+    background: getColor('light');
+    border-radius: 3px;
+    max-width: 475px;
+    padding: rem(25px) rem(32px);
+    width: 100%;
+
+    // border: 1px solid getColor('dark', 'quinary');
+}
+
+.uxt-form {
+    &--login,
+    &--signup {}
+
+    &--label {
+        font-size: rem(12px);
+        font-weight: 700;
+        color: getColor('dark', 'base', 'light');
+        margin-bottom: 5px;
+        text-transform: uppercase;
+    }
+
+    &--input {
+        border: 1px solid getColor('dark', 'tertiary');
+        height: 50px;
+        padding: 0.9375rem;
+        font-size: 0.875rem;
+        outline: 0;
+        display: block;
+        border-radius: 3px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        transition: border-color 0.2s ease;
+
+        &:focus,
+        &:hover {
+            border-color: #8c96a9;
+        }
+
+        &::-webkit-input-placeholder {
+            color: #999999;
+        }
+
+        &::-moz-placeholder {
+            color: #999999;
+        }
+
+        &::-ms-input-placeholder {
+            color: #999999;
+        }
+    }
+}

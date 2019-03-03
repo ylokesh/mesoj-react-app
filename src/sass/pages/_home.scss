@@ -1,0 +1,89 @@
+.ms-header {
+    background-color: #222;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid #181818;
+    z-index: 3;
+}
+
+.ms-app--content {
+    margin-top: rem(64px);
+}
+
+.ms-header {
+    height: 64px;
+}
+
+.ms-logo {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ms-nav {
+    &--link {
+        height: 64px;
+        float: right;
+        padding: 0 20px;
+        align-items: center;
+        color: getColor('light');
+        display: flex;
+
+        &:hover {
+            background-color: #363636;
+        }
+    }
+}
+
+.ms-dropdown {
+    position: relative;
+    cursor: pointer;
+
+    .ms-dropdown--menu {
+        background-color: #363636;
+        display: none;
+        list-style: none;
+        position: absolute;
+        margin: 0;
+        padding: 10px 0;
+        top: 100%;
+        right: 0;
+        min-width: 180px;
+        color: getColor('dark');
+        text-align: left;
+
+        a {
+            display: block;
+            padding: 3px 20px;
+            line-height: 24px;
+            font-size: rem(14px);
+            color: getColor('light');
+
+            &:hover,
+            &:focus {
+                color: getColor('light');
+                background-color: #2d2d2d;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &:hover,
+    &:focus {
+        .ms-dropdown--menu {
+            display: block;
+        }
+    }
+}
+
+.ms-sidebar {
+    width: 165px;
+    position: fixed;
+    height: 100vh;
+}
+
+.ms-main {
+    position: absolute;
+    margin-left: 165px;
+    width: calc(100% - 165px);
+}

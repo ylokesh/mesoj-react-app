@@ -1,0 +1,12 @@
+// Generate Opacity Classes
+
+/* Examples:
+	op-0 ==> opacity: .0
+	op-1 ==> opacity: .1
+*/
+
+@for $i from 0 through 9 {
+	.op-#{$i} {
+		opacity: #{'.' + $i};
+	}
+}

@@ -1,0 +1,16 @@
+// Generate Theme Based background Color ClassName
+
+/* Examples:
+	op-0 ==> opacity: .0
+	op-1 ==> opacity: .1
+*/
+
+@each $key, $value in $base-colors {
+    $theme: $key;
+
+    @each $key, $value in $value {
+        .bg-#{$theme}-#{$key} {
+            background-color: $value;
+        }
+    }
+}

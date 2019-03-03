@@ -1,0 +1,8 @@
+.theme {
+	&--dark {
+		background-color: getColor('dark');
+	}
+	&--light {
+		background-color: getColor('light', 'primary');
+	}
+}

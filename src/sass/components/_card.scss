@@ -1,0 +1,53 @@
+.card {
+    border: 0;
+    border-radius: 2px;
+
+    &-body {
+        background-color: getColor('dark', 'base', 0.85);
+        border: 0;
+    }
+
+    &-cover {
+        background-color: getColor('dark', 'base', 0.9);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    &-image {
+        position: relative;
+        margin-bottom: 10px;
+
+        img {
+            margin-top: -12%;
+        }
+    }
+
+    &-icon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-80%);
+
+        // color: getColor('light');
+        font-weight: 700;
+    }
+
+    span[class*='fa-'] {
+        font-size: rem(48px);
+    }
+
+    &-title {
+        font-size: rem(18px);
+    }
+}
+
+// .card-title {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translateX(-50%) translateY(-50%);
+//     width: 100%;
+// }

@@ -1,0 +1,19 @@
+.text {
+	&-error {
+		color: getColor('error');
+		font-size: rem(14px);
+	}
+}
+
+.has {
+	&-error {
+		border-color: getColor('error');
+		input {
+			border-color: getColor('error');
+			&:focus,
+			&:hover {
+				border-color: inherit;
+			}
+		}
+	}
+}

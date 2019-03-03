@@ -1,0 +1,17 @@
+.list-group {
+    z-index: 3;
+
+    &-item {
+        background-color: getColor('brand', 'quinary');
+        font-size: rem(14px);
+        color: #aaa;
+
+        &.active,
+        &:hover,
+        &:focus {
+            color: getColor('light');
+            background-color: #2b2b2b;
+            border-color: transparent;
+        }
+    }
+}
