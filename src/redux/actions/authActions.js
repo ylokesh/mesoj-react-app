@@ -2,7 +2,7 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from '../../utils/setAuthToken';
 
-import {GET_ERRORS, SET_CURRENT_USER} from './types';
+import {GET_ERRORS, SET_CURRENT_USER, UPDATE_CURRENT_USER_DETAILS} from './types';
 
 // Register User
 export const registeruser = (userData, history) => dispatch => {
@@ -57,4 +57,23 @@ export const logoutuser = () => dispatch => {
 	setAuthToken(false);
 	// Set Current User
 	dispatch(setCurrentUser({}));
+};
+
+// Update User Study Standard
+export const updateUserStandard = standard => dispatch => {
+	axios
+		.put('/api/users', {standard: standard})
+		.then(res => {
+			localStorage.setItem('userstandard', res.data);
+			dispatch({
+				type: UPDATE_CURRENT_USER_DETAILS,
+				payload: res.data
+			});
+		})
+		.catch(err => {
+			dispatch({
+				type: GET_ERRORS,
+				payload: err.response.data
+			});
+		});
 };

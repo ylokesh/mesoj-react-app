@@ -1,0 +1,15 @@
+.ms-custom-dropdown {
+    max-width: 200px;
+    color: getColor('dark');
+    font-size: rem(14px);
+    font-weight: 700;
+    cursor: pointer;
+
+    .css-vj8t7z {
+        border-color: getColor('dark', 'decnary');
+    }
+
+    .css-1492t68 {
+        color: getColor('brand', 'septnary');
+    }
+}

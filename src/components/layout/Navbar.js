@@ -6,6 +6,7 @@ import {logoutuser} from '../../redux/actions/authActions';
 
 import {Link} from 'react-router-dom';
 import logo from '../../images/logo_primary.svg';
+import dashboardIcon from '../../images/dashboard.svg';
 
 class Navbar extends Component {
 	onLogoutClick(event) {
@@ -15,6 +16,15 @@ class Navbar extends Component {
 	}
 	render() {
 		const {isAuthenticated, user} = this.props.auth;
+
+		const breadcrumb = (
+			<div className='ms-breadcrumb'>
+				<h2 className='heading-quinary color-light-base'>
+					<img className='mr-1' src={dashboardIcon} alt='Dashboard' />
+					<span>DashBoard</span>
+				</h2>
+			</div>
+		);
 
 		const authLinks = (
 			<div className=''>
@@ -68,6 +78,7 @@ class Navbar extends Component {
 							<img className='' src={logo} alt='mësoj' width='90' />
 						</Link>
 					</div>
+					{isAuthenticated ? breadcrumb : null}
 					{isAuthenticated ? authLinks : guestLinks}
 				</div>
 			</header>

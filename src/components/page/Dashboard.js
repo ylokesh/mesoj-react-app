@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import Section from '../organisms/Section';
+
+// Image Assets
 import learn from '../../images/young_scientists.jpg';
 import quiz from '../../images/quiz.jpg';
 import learningpath from '../../images/learning-path.png';
 import boardpaper from '../../images/boardpaper.jpg';
+import Select from 'react-select';
+
+// Actions
+import {updateUserStandard} from '../../redux/actions/authActions';
 
 class Dashboard extends Component {
 	greetUser() {
@@ -28,7 +34,126 @@ class Dashboard extends Component {
 			</div>
 		);
 	}
+
+	handleChange(event) {
+		this.props.updateUserStandard(event.value);
+		this.props.history.push('/dashboard');
+	}
+
 	render() {
+		const {user, standard} = this.props.auth;
+		const userStandardChosen = (localStorage.getItem('userstandard') || standard) !== '' ? true : false;
+
+		const standards = [
+			{value: '8', label: '8th (VIII)'},
+			{value: '9', label: '9th (IX)'},
+			{value: '10', label: '10th (X)'},
+			{value: '11', label: '11th (XI)'},
+			{value: '12', label: '12th (XII)'}
+		];
+		const selectedOption = 'Choose Standard...';
+
+		const standardDashboard = (
+			<div className='ms-student--standard'>
+				<div className='mb-2 color-light-base heading-secondary'>
+					<span className='color-brand-base mr-1'>Welcome</span>
+					<span>{user.name}.</span>
+				</div>
+				<hr className='bg-dark-decnary mb-4' />
+				<p className='color-light-base'>Please choose the standard you are studying in:</p>
+				<div className='ms-custom-dropdown'>
+					<Select value={selectedOption} onChange={this.handleChange.bind(this)} options={standards} />
+				</div>
+			</div>
+		);
+
+		const getStandardFromUser = (
+			<div className='ms-dashbaord'>
+				{this.greetUser()}
+				<hr className='bg-dark-decnary mb-5' />
+				<h3 className='heading-tertiary text-white mb-3'>
+					Start Learning
+					<span className='fas fa-angle-double-right ml-2 color-brand-base align-middle txt-tertiary' />
+				</h3>
+				<div className='row text-white'>
+					<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3'>
+						<div className='card mb-4 shadow-sm'>
+							<div className='card-body p-2' href='/#'>
+								<div className='card-image overflow-hidden'>
+									<img className='img-fluid' src={learn} alt='' />
+									<span className='card-cover d-block' />
+									<span className='card-icon color-brand-primary mb-3 mt-3 heading-secondary'>Learn</span>
+								</div>
+								<span className='d-block txt-tertiary mb-2 color-dark-septnary'>
+									Engaging video lessons that help you visualize each concept.
+								</span>
+								<Link className='txt-secondary rounded text-white text-center bg-brand-primary p-2 d-block' to='/learn'>
+									Start Your Journey
+								</Link>
+							</div>
+						</div>
+					</div>
+					<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3'>
+						<div className='card mb-4 shadow-sm'>
+							<div className='card-body p-2' href='/#'>
+								<div className='card-image overflow-hidden'>
+									<img className='img-fluid' src={boardpaper} alt='' />
+									<span className='card-cover d-block' />
+									<span className='card-icon color-brand-base mb-3 mt-3 heading-secondary'>Practice</span>
+								</div>
+								<span className='d-block txt-tertiary mb-2 color-dark-septnary'>
+									Do practice with previous years board papers to prepare well for exams.
+								</span>
+								<Link className='txt-secondary rounded text-white text-center bg-brand-base p-2 d-block' to='/boardpapers'>
+									Start Preparing
+								</Link>
+							</div>
+						</div>
+					</div>
+					<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3'>
+						<div className='card mb-4 shadow-sm'>
+							<div className='card-body p-2' href='/#'>
+								<div className='card-image overflow-hidden'>
+									<img className='img-fluid' src={quiz} alt='' />
+									<span className='card-cover d-block' />
+									<span className='card-icon color-brand-secondary mb-3 mt-3 heading-secondary'>Quiz</span>
+								</div>
+								<span className='d-block txt-tertiary mb-2 color-dark-septnary'>
+									Adaptive, interactive quiz that help students master each concepts.
+								</span>
+								<Link className='txt-secondary rounded text-white text-center bg-brand-secondary p-2 d-block' to='/quiz'>
+									Test Your Knowledge
+								</Link>
+							</div>
+						</div>
+					</div>
+					<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3'>
+						<div className='card mb-4 shadow-sm'>
+							<div className='card-body p-2' href='/#'>
+								<div className='card-image overflow-hidden'>
+									<img className='img-fluid' src={learningpath} alt='' />
+									<span className='card-cover d-block' />
+									<span className='card-icon color-brand-tertiary mb-3 mt-3 heading-secondary'>Path</span>
+								</div>
+								<span className='d-block txt-tertiary mb-2 color-dark-septnary'>
+									This links different concepts and helps students with a path of adaptive learning.
+								</span>
+								<Link className='txt-secondary rounded text-white text-center bg-brand-tertiary p-2 d-block' to='/comingsoon'>
+									Coming Soon
+								</Link>
+							</div>
+						</div>
+					</div>
+				</div>
+				<Section
+					title='Recent Activities'
+					description='A handy log of all your chapters covered, quiz, recent bookmarks will populate here.'
+					dataTiles={[]}
+				/>
+				<Section title='Topics Covered' description='Keep track of all the topics you have started studying!' dataTiles={[]} />
+			</div>
+		);
+
 		return (
 			<div className='row'>
 				{/* SideBar */}
@@ -59,118 +184,7 @@ class Dashboard extends Component {
 					</div>
 				</div>
 				<div className='ms-main'>
-					<div className='col-12 p-5 vh-100'>
-						{this.greetUser()}
-						<hr className='bg-dark-decnary mb-5' />
-						<h3 className='heading-tertiary text-white mb-3'>
-							Start Learning
-							<span className='fas fa-angle-double-right ml-2 color-brand-base align-middle txt-tertiary' />
-						</h3>
-
-						{/* Horizontal Center Alignment */}
-						{/* <div className='row pt-5 text-white d-flex justify-content-center'> */}
-						<div className='row text-white'>
-							<div className='col-sm-6 col-md-3'>
-								<div className='card mb-4 shadow-sm'>
-									<div className='card-body p-2' href='/#'>
-										<div className='card-image overflow-hidden'>
-											<img className='img-fluid' src={learn} alt='' />
-											<span className='card-cover d-block' />
-											<span className='card-icon color-brand-primary mb-3 mt-3 heading-secondary'>Learn</span>
-											{/* <span className='fab fa-leanpub card-icon color-brand-primary mb-3 mt-3' /> */}
-										</div>
-										{/* <span className='card-title heading-tertiary d-block mb-2'>Learn</span> */}
-										{/* <span className='d-block txt-tertiary mb-2 color-dark-septnary'>
-										Engaging video lessons that help you visualize each concept, making it easier to understand. Clearer concepts
-										lead to higher scores.
-									</span> */}
-										<span className='d-block txt-tertiary mb-2 color-dark-septnary'>
-											Engaging video lessons that help you visualize each concept.
-										</span>
-										<Link className='txt-secondary rounded text-white text-center bg-brand-primary p-2 d-block' to='/learn'>
-											Start Your Journey
-										</Link>
-									</div>
-								</div>
-							</div>
-							<div className='col-sm-6 col-md-3'>
-								<div className='card mb-4 shadow-sm'>
-									<div className='card-body p-2' href='/#'>
-										<div className='card-image overflow-hidden'>
-											<img className='img-fluid' src={boardpaper} alt='' />
-											<span className='card-cover d-block' />
-											<span className='card-icon color-brand-base mb-3 mt-3 heading-secondary'>Practice</span>
-											{/* <span className='fas fa-chalkboard-teacher card-icon color-brand-base mb-3 mt-3' /> */}
-										</div>
-										{/* <span className='card-title heading-tertiary d-block mb-2'>Board Papers</span> */}
-										{/* <span className='d-block txt-tertiary mb-2 color-dark-septnary'>
-										Practice subject specific board papers from past years and make yourself comfortable with boards examination
-										patterns.
-									</span> */}
-										<span className='d-block txt-tertiary mb-2 color-dark-septnary'>
-											Practice subject specific board papers from past years.
-										</span>
-										<Link className='txt-secondary rounded text-white text-center bg-brand-base p-2 d-block' to='/boardpapers'>
-											Start Preparing
-										</Link>
-									</div>
-								</div>
-							</div>
-							<div className='col-sm-6 col-md-3'>
-								<div className='card mb-4 shadow-sm'>
-									<div className='card-body p-2' href='/#'>
-										<div className='card-image overflow-hidden'>
-											<img className='img-fluid' src={quiz} alt='' />
-											<span className='card-cover d-block' />
-											<span className='card-icon color-brand-secondary mb-3 mt-3 heading-secondary'>Quiz</span>
-											{/* <span className='far fa-clock card-icon color-brand-secondary mb-3 mt-3' /> */}
-										</div>
-										{/* <span className='card-title heading-tertiary d-block mb-2'>Quiz</span> */}
-										{/* <span className='d-block txt-tertiary mb-2 color-dark-septnary'>
-										Adaptive, interactive quiz that help students master each concepts. Setup your game with unlimited such quiz
-										setup only for you.
-									</span> */}
-										<span className='d-block txt-tertiary mb-2 color-dark-septnary'>
-											Adaptive, interactive quiz that help students master each concepts.
-										</span>
-										<Link className='txt-secondary rounded text-white text-center bg-brand-secondary p-2 d-block' to='/quiz'>
-											Test Your Knowledge
-										</Link>
-									</div>
-								</div>
-							</div>
-							<div className='col-sm-6 col-md-3'>
-								<div className='card mb-4 shadow-sm'>
-									<div className='card-body p-2' href='/#'>
-										<div className='card-image overflow-hidden'>
-											<img className='img-fluid' src={learningpath} alt='' />
-											<span className='card-cover d-block' />
-											<span className='card-icon color-brand-tertiary mb-3 mt-3 heading-secondary'>Path</span>
-											{/* <span className='fas fa-bezier-curve card-icon color-brand-tertiary mb-3 mt-3' /> */}
-										</div>
-										{/* <span className='card-title heading-tertiary d-block mb-2'>Learning Paths</span> */}
-										{/* <span className='d-block txt-tertiary mb-2 color-dark-septnary'>
-										Every student has a Knowledge Graph based on their learning need. This links different concepts and helps
-										students with a path of adaptive learning.
-									</span> */}
-										<span className='d-block txt-tertiary mb-2 color-dark-septnary'>
-											This links different concepts and helps students with a path of adaptive learning.
-										</span>
-										{/* TODO: New route for coming soon features */}
-										<Link className='txt-secondary rounded text-white text-center bg-brand-tertiary p-2 d-block' to='/comingsoon'>
-											Coming Soon
-										</Link>
-									</div>
-								</div>
-							</div>
-						</div>
-						<Section
-							title='Recent Activities'
-							description='A handy log of all your chapters covered, quiz, recent bookmarks will populate here.'
-							dataTiles={[]}
-						/>
-						<Section title='Topics Covered' description='Keep track of all the topics you have started studying!' dataTiles={[]} />
-					</div>
+					<div className='col-12 p-5 vh-100'>{userStandardChosen ? getStandardFromUser : standardDashboard}</div>
 				</div>
 			</div>
 		);
@@ -183,5 +197,5 @@ const mapStateToProps = state => ({
 
 export default connect(
 	mapStateToProps,
-	{}
-)(Dashboard);
+	{updateUserStandard}
+)(withRouter(Dashboard));
