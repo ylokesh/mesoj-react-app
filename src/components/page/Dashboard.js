@@ -10,6 +10,7 @@ import boardpaper from '../../images/boardpaper.jpg';
 class Dashboard extends Component {
 	greetUser() {
 		const {user} = this.props.auth;
+
 		let thehours = new Date().getHours();
 		let greetMessage;
 

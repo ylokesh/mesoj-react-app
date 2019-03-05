@@ -6,6 +6,9 @@ import {connect} from 'react-redux';
 import {registeruser} from '../../redux/actions/authActions';
 import TextFieldGroup from '../molecules/TextFieldGroup';
 
+// TODO: Login with Google/Facebook
+// TODO: Action Button Loading state with three animated dots
+
 class SignUp extends Component {
 	constructor() {
 		super();
@@ -98,7 +101,6 @@ class SignUp extends Component {
 								aria='password'
 							/>
 						</div>
-						{/* TODO: Button Loading state with three animated dots */}
 						<div className='form-group p-0 m-0'>
 							<Button onClick='' type='submit' value='Continue' primary block />
 						</div>

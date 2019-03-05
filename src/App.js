@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Provider} from 'react-redux';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
 import store from './redux/store';
@@ -9,6 +9,7 @@ import Landing from './components/layout/Landing';
 import SignUp from './components/organisms/SignUp';
 import Login from './components/organisms/Login';
 import Dashboard from './components/page/Dashboard';
+import PrivateRoute from './components/organisms/PrivateRoute';
 
 import {setCurrentUser, logoutuser} from './redux/actions/authActions';
 import setAuthToken from './utils/setAuthToken';
@@ -40,7 +41,10 @@ class App extends Component {
 							<Route exact path='/signup' component={SignUp} />
 							<Route exact path='/login' component={Login} />
 							<div className='ms-app--main'>
-								<Route exact path='/dashboard' component={Dashboard} />
+								{/* TODO: Dashboard route should be protected */}
+								<Switch>
+									<PrivateRoute exact path='/dashboard' component={Dashboard} />
+								</Switch>
 							</div>
 						</div>
 					</div>
