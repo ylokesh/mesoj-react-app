@@ -4,8 +4,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
 import store from './redux/store';
-import Nav from './components/layout/Navbar';
-import Landing from './components/layout/Landing';
+import Nav from './components/molecules/Navbar';
+import Landing from './components/page/Landing';
 import SignUp from './components/organisms/SignUp';
 import Login from './components/organisms/Login';
 import Dashboard from './components/page/Dashboard';
