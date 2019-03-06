@@ -172,7 +172,7 @@ class Dashboard extends Component {
 								<span className='far fa-clock mr-3' />
 								Quiz
 							</a>
-							<a href='/#' className='list-group-item list-group-item-action'>
+							<a href='/boardPapers' className='list-group-item list-group-item-action'>
 								<span className='fas fa-chalkboard mr-3' />
 								Board Papers
 							</a>
