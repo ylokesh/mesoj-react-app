@@ -1,8 +1,8 @@
 
 import axios from 'axios'
 
-const apiURl = "http://localhost:8080/api/quiz_ans";
-const profileURl = "http://localhost:8080/api/profile";
+const apiURl = "http://mesosreport-mesos-report.1d35.starter-us-east-1.openshiftapps.com/api/quiz_ans";
+const profileURl = "http://mesosreport-mesos-report.1d35.starter-us-east-1.openshiftapps.com/api/profile";
 
 const Api = {
     loadQuizList(userid, size) {
