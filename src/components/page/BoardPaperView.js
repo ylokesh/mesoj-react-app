@@ -7,26 +7,29 @@ import Section from '../organisms/Section';
 import {loadBoardData} from '../../redux/actions/boardPaperActions';
 
 class BoardPaper extends Component {
+
     componentDidMount() {
         let { actions } = this.props;
         actions.loadBoardData(10);
+        //this.setState
     }
     componentWillUnmount() {
     }
 
 	renderSubjectList() {
 		let { boardPaper } = this.props;
-		/*console.log(boardPaper);
+		console.log(boardPaper);
         return boardPaper.map((item, idx) => {
             return (
                 <div key={idx} className="list-group-item">
                     
                 </div>
             )
-        });*/
+        });
 	}
 	render() {
-		//const {user, standard} = this.props.auth;
+        const {boardPaper} = this.props;
+        if (!boardPaper) return '';
 		return (
 			<div className='row'>
 				<div className='ms-main'>
@@ -38,7 +41,7 @@ class BoardPaper extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    boardPaper: state.boardPaper,
+    boardPaper: state.boardPapers,
 })
 
 const mapDispatchToProps = dispatch => ({
