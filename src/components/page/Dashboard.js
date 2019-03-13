@@ -176,9 +176,13 @@ class Dashboard extends Component {
 								<span className='fas fa-chalkboard mr-3' />
 								Board Papers
 							</a>
-							<a href='/#' className='list-group-item list-group-item-action'>
+							<a href='/report' className='list-group-item list-group-item-action'>
 								<span className='fas fa-bookmark mr-3' />
-								Bookmarks
+								Report
+							</a>
+							<a href='/profile' className='list-group-item list-group-item-action'>
+								<span className='fas fa-bookmark mr-3' />
+								Profile
 							</a>
 						</div>
 					</div>

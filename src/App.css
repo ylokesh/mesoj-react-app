@@ -1,1 +1,45 @@
-
+.blueCardBox{
+    background-color: #235ca3;
+    color: #fff;
+  }
+  .whiteCardBox{
+    background-color: #f2f2f2;
+  }
+  .navbar-light .navbar-brand{
+    color: #fff !important;
+  }
+  .CircularProgressbar {
+    width: 50px !important;
+    height: 50px;
+    background: #becee5;
+    border-radius: 50%;
+  }
+  .CircularProgressbar .CircularProgressbar-trail {
+    stroke: transparent !important;
+  }
+  .cardBoxText{
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1;
+    padding: 10px;
+    background: #fff;
+  }
+  .cardBoxText span {
+    font-size: 12px;
+  }
+  .correctText{
+    color: #02a545;
+  }
+  .incorrectText{
+    color: #fc0638;
+  }
+  .percentText{
+    color: #235ca3;
+  }
+  .profilePic {
+    display: inline;
+    max-width: 100px;
+  }
+ .profilePage label {
+    color: #f2f2f2;
+}

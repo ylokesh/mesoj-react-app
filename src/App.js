@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
-
+import './App.css';
 import store from './redux/store';
 import Nav from './components/molecules/Navbar';
 import Landing from './components/page/Landing';
@@ -11,6 +11,9 @@ import Login from './components/organisms/Login';
 import Dashboard from './components/page/Dashboard';
 import BoardPaper from './components/page/BoardPaperView';
 import PrivateRoute from './components/organisms/PrivateRoute';
+import QuizList from './components/page/quiz/quizList';
+import WeeklyQuizList from './components/page/quiz/weeklyQuizList';
+import UserProfile from './components/page/profile/userProfile';
 
 import {setCurrentUser, logoutuser} from './redux/actions/authActions';
 import setAuthToken from './utils/setAuthToken';
@@ -42,6 +45,8 @@ class App extends Component {
 							<Route exact path='/signup' component={SignUp} />
 							<Route exact path='/login' component={Login} />
 							<Route exact path='/boardPapers' component={BoardPaper} />
+							<Route exact path='/profile' component={UserProfile} />
+							<Route exact path='/report' component={QuizList} />
 							<div className='ms-app--main'>
 								{/* TODO: Dashboard route should be protected */}
 								<Switch>
