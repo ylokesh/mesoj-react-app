@@ -1,37 +1,54 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link, withRouter} from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import Section from '../organisms/Section';
 
-
 // Actions
-import {updateUserStandard} from '../../redux/actions/authActions';
+import {loadBoardData} from '../../redux/actions/boardPaperActions';
 
-class boardPaper extends Component {
+class BoardPaper extends Component {
+    componentDidMount() {
+        let { actions } = this.props;
+        actions.loadBoardData(10);
+    }
+    componentWillUnmount() {
+    }
 
+	renderSubjectList() {
+		let { boardPaper } = this.props;
+		/*console.log(boardPaper);
+        return boardPaper.map((item, idx) => {
+            return (
+                <div key={idx} className="list-group-item">
+                    
+                </div>
+            )
+        });*/
+	}
 	render() {
-		const {user, standard} = this.props.auth;
-		const showSubjectList = (
-			<div className='ms-dashbaord'>
-
-			</div>
-		);
-
+		//const {user, standard} = this.props.auth;
 		return (
 			<div className='row'>
 				<div className='ms-main'>
-					<div className='col-12 p-5 vh-100'></div>
+					<div className='col-12 p-5 vh-100'>{this.renderSubjectList()}</div>
 				</div>
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = state => ({
-	auth: state.auth
-});
+const mapStateToProps = (state, ownProps) => ({
+    boardPaper: state.boardPaper,
+})
 
-export default connect(
-	mapStateToProps,
-	{updateUserStandard}
-)(withRouter(boardPaper));
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators({ loadBoardData }, dispatch)
+})
+
+// `connect` returns a new function that accepts the component to wrap:
+const connectToStore = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)
+
+export default connectToStore(BoardPaper);
