@@ -15,14 +15,18 @@ class BoardPaper extends Component {
     }
     componentWillUnmount() {
     }
-
-	renderSubjectList() {
-		let { boardPaper } = this.props;
-		console.log(boardPaper);
-        return boardPaper.map((item, idx) => {
+	renderRequiredList(requirement) {
+        let { boardPaper } = this.props;
+        let reqList = [];
+        boardPaper.map((item) => {
+            if(reqList.indexOf(item[requirement]) < 0){
+                reqList.push(item[requirement]);
+            }
+        });
+        return reqList.map((item, idx) => {
             return (
-                <div key={idx} className="list-group-item">
-                    
+                <div  key={idx} className="list-group-item" onClick={e => this.renderRequiredList('year')}>
+                    {item}
                 </div>
             )
         });
@@ -33,7 +37,7 @@ class BoardPaper extends Component {
 		return (
 			<div className='row'>
 				<div className='ms-main'>
-					<div className='col-12 p-5 vh-100'>{this.renderSubjectList()}</div>
+					<div className='col-12 p-5 vh-100'>{this.renderRequiredList('subject')}</div>
 				</div>
 			</div>
 		);
