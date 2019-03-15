@@ -10,6 +10,8 @@ import SignUp from './components/organisms/SignUp';
 import Login from './components/organisms/Login';
 import Dashboard from './components/page/Dashboard';
 import BoardPaper from './components/page/BoardPaperView';
+import BoardPaperYears from './components/page/BoardPaperYearView';
+import BoardPaperQuestionAns from './components/page/BoardPaperQuestionAns';
 import PrivateRoute from './components/organisms/PrivateRoute';
 import QuizList from './components/page/quiz/quizList';
 import WeeklyQuizList from './components/page/quiz/weeklyQuizList';
@@ -45,6 +47,8 @@ class App extends Component {
 							<Route exact path='/signup' component={SignUp} />
 							<Route exact path='/login' component={Login} />
 							<Route exact path='/boardPapers' component={BoardPaper} />
+							<Route exact path='/showYearPaper' component={BoardPaperYears} />
+							<Route exact path='/showQuestionAns' component={BoardPaperQuestionAns} />
 							<Route exact path='/profile' component={UserProfile} />
 							<Route exact path='/report' component={QuizList} />
 							<div className='ms-app--main'>

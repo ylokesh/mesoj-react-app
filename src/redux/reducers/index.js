@@ -14,7 +14,6 @@ export default combineReducers({
 	auth: authReducer,
 	errors: errorReducer,
 	boardPapers : boardPaperReducer,
-
 	quizList: quizReducer,
     quizResponse: quizResponseReducer,
     reqStatus: reqStatusReducer,
