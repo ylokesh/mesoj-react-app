@@ -1,4 +1,4 @@
-import {LOAD_BOARD_PAPERS, UPDATE_CHOSEN_SUBJECT} from '../actions/types';
+import {LOAD_BOARD_PAPERS, UPDATE_CHOSEN_SUBJECT, UPDATE_CHOSEN_YEAR} from '../actions/types';
 
 const initialState = {
 	boardPapers : [],
