@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {LOAD_BOARD_PAPERS, GET_ERRORS} from './types';
+import {LOAD_BOARD_PAPERS, UPDATE_CHOSEN_SUBJECT, GET_ERRORS} from './types';
 
 // Register User
 export const loadBoardData = (standard) => dispatch => {
@@ -14,4 +14,9 @@ export const loadBoardData = (standard) => dispatch => {
 			dispatch({type: GET_ERRORS, payload: err});
 		});
 };
+export function updateChosenSubject(value){
+    return function(dispatch){
+        dispatch({type:UPDATE_CHOSEN_SUBJECT, payload: value})
+    }
+}
 
