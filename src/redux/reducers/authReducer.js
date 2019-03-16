@@ -1,5 +1,6 @@
 import {SET_CURRENT_USER, UPDATE_CURRENT_USER_DETAILS} from '../actions/types';
 import isEmpty from '../../utils/is-empty';
+import updateObject from '../../utils/utility';
 
 const initialState = {
 	isAuthenticated: false,
@@ -16,10 +17,7 @@ export default function(state = initialState, action) {
 				user: action.payload
 			};
 		case UPDATE_CURRENT_USER_DETAILS:
-			return {
-				...state,
-				standard: action.payload
-			};
+			return updateObject(state, {standard: action.payload});
 		default:
 			return state;
 	}

@@ -9,7 +9,20 @@ import {
 	UPDATE_TOTAL_QUIZ_COUNT
 } from '../constants';
 
-export function reportReducer(state = [], action) {
+import updateObject from '../../utils/utility';
+
+const initialState = {
+	quizList: [],
+	quizResponse: [],
+	weekQuizList: [],
+	weekQuizResponse: [],
+	totalQuizCorrect: 0,
+	totalQuizInCorrect: 0,
+	totalQuizPercent: 0,
+	totalQuizCount: 0
+};
+
+export function reportReducer(state = initialState, action) {
 	// console.log("-quiz-reducer-");
 	switch (action.type) {
 		case LOAD_QUIZ_LIST: {
@@ -20,8 +33,7 @@ export function reportReducer(state = [], action) {
 			return state;
 	}
 }
-export function weekQuizReducer(state = [], action) {
-	// console.log("-quiz-reducer-");
+export function weekQuizReducer(state = initialState, action) {
 	switch (action.type) {
 		case LOAD_WEEK_QUIZ_LIST: {
 			let {weekQuizList} = action;
@@ -71,27 +83,24 @@ export function totalQuizCountReducer(state = 0, action) {
 	}
 }
 
-export function quizResponseReducer(state = {}, action) {
-	// console.log("-quiz-Response-reducer-");
+export function quizResponseReducer(state = initialState, action) {
 	switch (action.type) {
 		case LOAD_QUIZ_RESPONSE: {
 			let {quizid, quizResponse} = action;
-			//let existingResponse = state[quizid] || [];
 			quizResponse = [...quizResponse];
-			return Object.assign({}, state, {[quizid]: quizResponse});
+			return updateObject(state, {[quizid]: quizResponse});
 		}
 		default:
 			return state;
 	}
 }
-export function weekQuizResponseReducer(state = {}, action) {
-	// console.log("-quiz-Response-reducer-");
+export function weekQuizResponseReducer(state = initialState, action) {
 	switch (action.type) {
 		case LOAD_WEEK_QUIZ_RESPONSE: {
 			let {weekQuizid, weekQuizResponse} = action;
 			let existingResponse = state[weekQuizid] || [];
 			weekQuizResponse = [...existingResponse, ...weekQuizResponse];
-			return Object.assign({}, state, {[weekQuizid]: weekQuizResponse});
+			return updateObject(state, {[weekQuizid]: weekQuizResponse});
 		}
 		default:
 			return state;
