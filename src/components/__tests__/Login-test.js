@@ -4,14 +4,6 @@ import {shallow} from 'enzyme';
 import {Login} from '../organisms/Login';
 
 // Suite
-// import {Sidebar} from '../organisms/Sidebar';
-// describe('Sidebar Component', () => {
-// 	it('should render without throwing an error', () => {
-// 		var temp = shallow(<Sidebar />);
-// 		expect(temp.find('.ms-sidebar').exists()).toBe(true);
-// 	});
-// });
-
 describe('Login Component', () => {
 	let LoginComponent;
 
