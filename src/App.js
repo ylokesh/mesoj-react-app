@@ -47,15 +47,15 @@ class App extends Component {
 							<Route exact path='/' component={Landing} />
 							<Route exact path='/signup' component={SignUp} />
 							<Route exact path='/login' component={Login} />
-							<Route exact path='/boardPapers' component={BoardPaper} />
-							<Route exact path='/showYearPaper' component={BoardPaperYears} />
-							<Route exact path='/showQuestionAns' component={BoardPaperQuestionAns} />
 							<Route exact path='/profile' component={UserProfile} />
 							<Route exact path='/report' component={QuizList} />
 							<div className='ms-app--main'>
 								{/* TODO: Dashboard route should be protected */}
 								<Switch>
 									<PrivateRoute exact path='/dashboard' component={Dashboard} />
+									<PrivateRoute exact path='/boardPapers' component={BoardPaper} />
+									<PrivateRoute exact path='/boardPapers/showYearPaper' component={BoardPaperYears} />
+									<PrivateRoute exact path='/boardPapers/showQuestionAns' component={BoardPaperQuestionAns} />
 									{/* <Route component={ErrorPage} /> */}
 								</Switch>
 							</div>
