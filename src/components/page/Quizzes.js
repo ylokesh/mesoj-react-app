@@ -35,6 +35,11 @@ class Quizzes extends Component {
 				<div className=''>
 					<div className='ms-main'>
 						<div className='col-12 p-5 vh-100'>
+							<div className='mb-2 color-light-base heading-secondary'>
+								<span className='far fa-clock mr-3' />
+								<span className='color-brand-base'>Test</span> Your Knowlegde
+							</div>
+							<hr className='bg-dark-decnary mb-5' />
 							{this.renderQuiz()}
 							{/* <hr /> */}
 							<button className='btn button-primary mt-5' onClick={e => this.props.history.goBack()}>

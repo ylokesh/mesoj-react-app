@@ -13,7 +13,7 @@ export default function Sidebar() {
 						<span className='fa fa-book-open mr-3' />
 						Chapters
 					</a>
-					<a href='/#' className='list-group-item list-group-item-action'>
+					<a href='/quizzes' className='list-group-item list-group-item-action'>
 						<span className='far fa-clock mr-3' />
 						Quiz
 					</a>
