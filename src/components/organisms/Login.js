@@ -7,7 +7,7 @@ import {loginuser} from '../../redux/actions/authActions';
 import TextFieldGroup from '../molecules/TextFieldGroup';
 import Button from '../atoms/Button';
 
-class Login extends Component {
+export class Login extends Component {
 	constructor() {
 		super();
 		this.state = {

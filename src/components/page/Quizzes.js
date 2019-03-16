@@ -32,7 +32,7 @@ class Quizzes extends Component {
 	render() {
 		return (
 			<div>
-				<div className=''>
+				<div className='ms-quiz'>
 					<div className='ms-main'>
 						<div className='col-12 p-5 vh-100'>
 							<div className='mb-2 color-light-base heading-secondary'>

@@ -1,57 +1,40 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import Sidebar from '../organisms/Sidebar';
+
+import {Login} from '../organisms/Login';
 
 // Suite
-describe('Sidebar Component', () => {
+// import {Sidebar} from '../organisms/Sidebar';
+// describe('Sidebar Component', () => {
+// 	it('should render without throwing an error', () => {
+// 		var temp = shallow(<Sidebar />);
+// 		expect(temp.find('.ms-sidebar').exists()).toBe(true);
+// 	});
+// });
+
+describe('Login Component', () => {
+	let LoginComponent;
+
+	beforeEach(() => {
+		LoginComponent = shallow(<Login loginuser={jest.fn()} auth={{}} errors={{}} />);
+	});
+
 	it('should render without throwing an error', () => {
-		expect(
-			shallow(<Sidebar />)
-				.find('.ms-sidebar')
-				.exists()
-		).toBe(true);
+		expect(LoginComponent.find('.uxt-form').exists()).toBe(true);
+	});
+
+	it('renders a email input', () => {
+		// With Unique Identifier
+		const textFieldComponent = LoginComponent.find('TextFieldGroup[name="email"]').shallow();
+		expect(textFieldComponent.find('#email').length).toEqual(1);
+
+		// With Index Value i.e. at(index)
+		// var textFieldComponent = LoginComponent.find('TextFieldGroup').at(0).shallow();
+		// expect(textFieldComponent.find('#email').length).toEqual(1);
+	});
+
+	it('renders a password input', () => {
+		var textFieldComponent = LoginComponent.find('TextFieldGroup[name="password"]').shallow();
+		expect(textFieldComponent.find('#password').length).toEqual(1);
 	});
 });
-
-// describe('Login Component', () => {
-// 	it('should render without throwing an error', () => {
-// 		expect(
-// 			shallow(<Login />)
-// 				.find('form')
-// 				.exists()
-// 		).toBe(true);
-// 	});
-// });
-
-// describe('Login Component', () => {
-// 	it('should render without throwing an error', () => {
-// 		var LoginComponent = shallow(<Login />);
-// 		expect(LoginComponent.find('form').hasClass('uxt-form')).toBeTruthy();
-// 	});
-
-// it('renders a email input', () => {
-// 	expect(shallow(<Login />).find('#email').length).toEqual(1);
-// });
-
-// it('renders a password input', () => {
-// 	expect(shallow(<Login />).find('#password').length).toEqual(1);
-// });
-// });
-
-// describe('Email input', () => {
-// 	it('should respond to change event and change the state of the Login Component', () => {
-// 		const wrapper = shallow(<Login />);
-// 		wrapper.find('#email').simulate('change', {target: {name: 'email', value: 'blah@gmail.com'}});
-
-// 		expect(wrapper.state('email')).toEqual('blah@gmail.com');
-// 	});
-// });
-
-// describe('Password input', () => {
-// 	it('should respond to change event and change the state of the Login Component', () => {
-// 		const wrapper = shallow(<Login />);
-// 		wrapper.find('#password').simulate('change', {target: {name: 'password', value: 'cats'}});
-
-// 		expect(wrapper.state('password')).toEqual('cats');
-// 	});
-// });
