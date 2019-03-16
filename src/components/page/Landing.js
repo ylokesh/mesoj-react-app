@@ -11,22 +11,26 @@ class Landing extends Component {
 	};
 	render() {
 		return (
-			<div className='col-12 d-flex align-items-center justify-content-center text-center vh-100'>
-				<div className='text-white p-5'>
-					{/* <img className='mb-5 pb-2' src={logo} alt='mësoj' width='190' /> */}
-					<h1 className='mb-5 heading-primary'>
-						<p>Never compromize on learning.</p>
-					</h1>
-					<p className='txt-primary w-50 m-auto pb-5 op-8'>
-						We believe that these books could be of irreplaceable assistance in helping you learning anytime anywhere.
-					</p>
-					<div>
-						<Link className='btn d-inline-block button button-primary mr-3 ml-3 text-uppercase' to='/login'>
-							Log in
-						</Link>
-						<Link className='btn d-inline-block button button-transparent mr-3 ml-3 text-uppercase' to='/signup'>
-							Get Started
-						</Link>
+			<div className='page-landing col-12'>
+				<div className='page-landing--content'>
+					<div className='d-flex align-items-center justify-content-center text-center'>
+						<div className='text-white p-5'>
+							{/* <img className='mb-5 pb-2' src={logo} alt='mësoj' width='190' /> */}
+							<h1 className='mb-5 heading-primary'>
+								<p>BOOST YOUR SKILLS</p>
+							</h1>
+							<p className='txt-quinary m-auto pb-5 op-8'>
+								Learn something new every day and get inspired by the diversity of online learning.
+							</p>
+							<div>
+								<Link className='btn d-inline-block button button-primary mr-3 ml-3 text-uppercase' to='/login'>
+									Log in
+								</Link>
+								<Link className='btn d-inline-block button button-secondary mr-3 ml-3 text-uppercase' to='/signup'>
+									Get Started
+								</Link>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

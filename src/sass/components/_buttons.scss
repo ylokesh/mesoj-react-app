@@ -1,67 +1,81 @@
 .button {
-	color: #fff;
-	font-size: rem(14px);
-	font-weight: 600;
-	line-height: rem(13px);
-	border-radius: 3px;
-	padding: 16px 30px;
-	min-width: 200px;
-	text-transform: uppercase;
+    color: #fff;
+    font-size: rem(14px);
+    font-weight: 600;
+    line-height: rem(13px);
+    border-radius: 3px;
+    padding: 16px 30px;
+    min-width: 200px;
+    text-transform: uppercase;
 
-	&:hover,
-	&:focus {
-		color: #fff;
-	}
+    &:hover,
+    &:focus {
+        color: #fff;
+        transition: background-color 0.3s ease;
+    }
 
-	&[disabled] {
-		cursor: no-drop;
-		opacity: 0.65;
+    &[disabled] {
+        cursor: no-drop;
+        opacity: 0.65;
 
-		&:hover,
-		&:focus {
-			opacity: 0.65;
-		}
-	}
+        &:hover,
+        &:focus {
+            opacity: 0.65;
+        }
+    }
 
-	&-primary {
-		background: getColor('brand', 'base');
-		&-1 {
-			border-top-left-radius: 0;
-			border-top-right-radius: 0;
-		}
-	}
+    &-primary {
+        background: getColor('brand', 'base');
 
-	&-secondary {
-		background: getColor('brand', 'primary');
-		border-color: getColor('brand', 'primary');
-	}
+        &-1 {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
 
-	&-tertiary {
-		border-color: getColor('dark', 'primary');
-		transition: background-color 0.2s ease;
+        &:hover {
+            background-color: #f95762;
+            border-color: #f95762;
+        }
+    }
 
-		&:hover,
-		&:focus {
-			opacity: 0.9;
-			background-color: getColor('dark', 'secondary');
-		}
-	}
+    &-secondary {
+        background: getColor('brand', 'primary');
+        border-color: getColor('brand', 'primary');
 
-	&-transparent {
-		border-color: getColor('light', 'base', 'medium');
-		transition: border-color 0.4s ease;
-		&:hover,
-		&:focus {
-			border-color: getColor('light', 'base');
-		}
-	}
+        &:hover {
+            background-color: #2da6f3;
+            border-color: #2da6f3;
+        }
+    }
 
-	&-social {
-		&--facebook {
-			background-color: #4285f4;
-		}
-		&--google {
-			background-color: #00a1f1;
-		}
-	}
+    &-tertiary {
+        border-color: getColor('dark', 'primary');
+        transition: background-color 0.2s ease;
+
+        &:hover,
+        &:focus {
+            opacity: 0.9;
+            background-color: getColor('dark', 'secondary');
+        }
+    }
+
+    &-transparent {
+        border-color: getColor('light', 'base', 'medium');
+        transition: border-color 0.4s ease;
+
+        &:hover,
+        &:focus {
+            border-color: getColor('light', 'base');
+        }
+    }
+
+    &-social {
+        &--facebook {
+            background-color: #4285f4;
+        }
+
+        &--google {
+            background-color: #00a1f1;
+        }
+    }
 }

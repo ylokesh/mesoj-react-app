@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import './App.css';
 import store from './redux/store';
+
 import Nav from './components/molecules/Navbar';
 import Landing from './components/page/Landing';
 import SignUp from './components/organisms/SignUp';
@@ -14,8 +15,8 @@ import BoardPaperYears from './components/page/BoardPaperYearView';
 import BoardPaperQuestionAns from './components/page/BoardPaperQuestionAns';
 import PrivateRoute from './components/organisms/PrivateRoute';
 import QuizList from './components/page/quiz/quizList';
-import WeeklyQuizList from './components/page/quiz/weeklyQuizList';
 import UserProfile from './components/page/profile/userProfile';
+import ErrorPage from './components/page/Error';
 
 import {setCurrentUser, logoutuser} from './redux/actions/authActions';
 import setAuthToken from './utils/setAuthToken';
@@ -42,7 +43,7 @@ class App extends Component {
 				<Router>
 					<div className='container-fluid ms-app'>
 						<Nav />
-						<div className='ms-app--content'>
+						<div className='ms-app--content row'>
 							<Route exact path='/' component={Landing} />
 							<Route exact path='/signup' component={SignUp} />
 							<Route exact path='/login' component={Login} />
@@ -55,6 +56,7 @@ class App extends Component {
 								{/* TODO: Dashboard route should be protected */}
 								<Switch>
 									<PrivateRoute exact path='/dashboard' component={Dashboard} />
+									{/* <Route component={ErrorPage} /> */}
 								</Switch>
 							</div>
 						</div>

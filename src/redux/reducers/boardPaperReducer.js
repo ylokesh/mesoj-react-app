@@ -1,14 +1,13 @@
 import {LOAD_BOARD_PAPERS, UPDATE_CHOSEN_SUBJECT, UPDATE_CHOSEN_YEAR} from '../actions/types';
 
 const initialState = {
-	boardPapers : [],
-	chosenSubject : '',
-	chosenYear : '',
+	boardPapers: [],
+	chosenSubject: '',
+	chosenYear: ''
 };
 export default function(state = initialState, action) {
 	switch (action.type) {
-        case LOAD_BOARD_PAPERS: {
-            let { boardPapers } = action.payload;
+		case LOAD_BOARD_PAPERS: {
 			return {
 				...state,
 				boardPapers: action.payload.boardPapers

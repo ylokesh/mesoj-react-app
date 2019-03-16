@@ -53,70 +53,80 @@ class SignUp extends Component {
 		let {name, email, password, errors} = this.state;
 
 		return (
-			<div className='col-12 d-flex align-items-center justify-content-center'>
-				<div className='uxt-panel uxt-form--signup m-5'>
-					{/* <h2 className='heading-primary'>Start creating the future NOW.</h2> */}
-					<div className='uxt-panel--heading'>
-						<h2 className='heading-secondary mb-4'>Sign Up</h2>
-					</div>
+			<div className='page-login col-12'>
+				<div className='page-landing--content'>
+					<div className='d-flex justify-content-center align-items-center'>
+						<div className='uxt-panel uxt-form--signup m-5 text-left'>
+							{/* <h2 className='heading-primary'>Start creating the future NOW.</h2> */}
+							<div className='uxt-panel--heading'>
+								<h2 className='heading-secondary mb-4'>Sign Up</h2>
+							</div>
 
-					<form className='uxt-form' method='POST' onSubmit={this.onSubmit}>
-						<div className='form-group mb-4'>
-							<TextFieldGroup
-								type='text'
-								name='name'
-								placeholder='Your Name'
-								error={errors.name}
-								labelText='Name'
-								onChange={this.onChange}
-								value={name}
-								autoComplete='true'
-								aria='userFirstName'
-							/>
+							<form className='uxt-form' method='POST' onSubmit={this.onSubmit}>
+								<div className='form-group mb-4'>
+									<TextFieldGroup
+										type='text'
+										name='name'
+										placeholder='Your Name'
+										error={errors.name}
+										labelText='Name'
+										onChange={this.onChange}
+										value={name}
+										autoComplete='true'
+										aria='userFirstName'
+									/>
+								</div>
+								<div className='form-group mb-4'>
+									<TextFieldGroup
+										type='email'
+										name='email'
+										placeholder='youremail@domain.com'
+										error={errors.email}
+										labelText='Email Address'
+										onChange={this.onChange}
+										value={email}
+										autoComplete='true'
+										info=''
+										aria='emailHelp'
+									/>
+								</div>
+								<div className='form-group mb-4'>
+									<TextFieldGroup
+										type='password'
+										name='password'
+										placeholder='Enter your password'
+										error={errors.password}
+										labelText='Password'
+										onChange={this.onChange}
+										value={password}
+										autoComplete='true'
+										aria='password'
+									/>
+								</div>
+								<div className='form-group p-0 m-0'>
+									<Button onClick='' type='submit' value='Continue' primary block />
+								</div>
+							</form>
+							<div className='mt-4 mb-4 ml-auto mr-auto divider--or'>
+								<span>or</span>
+							</div>
+							<div className='text-center'>
+								<Button
+									cssClass='text-left button-social--facebook mb-3'
+									onClick=''
+									type='button'
+									value='Sign up with Facebook'
+									block
+								/>
+								<Button cssClass='text-left button-social--google mb-4' onClick='' type='button' value='Sign up with Google' block />
+								<p className='txt-secondary m-0'>
+									Already have an account?{' '}
+									<Link className='txt-secondary' to='/login'>
+										Log In
+									</Link>
+								</p>
+							</div>
 						</div>
-						<div className='form-group mb-4'>
-							<TextFieldGroup
-								type='email'
-								name='email'
-								placeholder='youremail@domain.com'
-								error={errors.email}
-								labelText='Email Address'
-								onChange={this.onChange}
-								value={email}
-								autoComplete='true'
-								info=''
-								aria='emailHelp'
-							/>
-						</div>
-						<div className='form-group mb-4'>
-							<TextFieldGroup
-								type='password'
-								name='password'
-								placeholder='Enter your password'
-								error={errors.password}
-								labelText='Password'
-								onChange={this.onChange}
-								value={password}
-								autoComplete='true'
-								aria='password'
-							/>
-						</div>
-						<div className='form-group p-0 m-0'>
-							<Button onClick='' type='submit' value='Continue' primary block />
-						</div>
-					</form>
-					<div className='mt-4 mb-4 ml-auto mr-auto divider--or'>
-						<span>or</span>
-					</div>
-					<div className='text-center'>
-						<Button cssClass='text-left button-social--facebook mb-3' onClick='' type='button' value='Sign up with Facebook' block />
-						<Button cssClass='text-left button-social--google mb-4' onClick='' type='button' value='Sign up with Google' block />
-						<p className='txt-secondary m-0'>
-							Already have an account?{' '}
-							<Link className='txt-secondary' to='/login'>
-								Log In
-							</Link>
-						</p>
 					</div>
 				</div>
 			</div>

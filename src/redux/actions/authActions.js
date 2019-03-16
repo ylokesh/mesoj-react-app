@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../utils/axios';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from '../../utils/setAuthToken';
 
@@ -13,7 +13,10 @@ export const registeruser = (userData, history) => dispatch => {
 			history.push('/login');
 		})
 		.catch(err => {
-			dispatch({type: GET_ERRORS, payload: err.response.data});
+			dispatch({
+				type: GET_ERRORS,
+				payload: (err.response && err.response.data) || {}
+			});
 		});
 };
 
@@ -36,7 +39,7 @@ export const loginuser = userData => dispatch => {
 		.catch(err => {
 			dispatch({
 				type: GET_ERRORS,
-				payload: err.response.data
+				payload: (err.response && err.response.data) || {}
 			});
 		});
 };
@@ -73,7 +76,7 @@ export const updateUserStandard = standard => dispatch => {
 		.catch(err => {
 			dispatch({
 				type: GET_ERRORS,
-				payload: err.response.data
+				payload: (err.response && err.response.data) || {}
 			});
 		});
 };

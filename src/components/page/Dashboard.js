@@ -155,7 +155,7 @@ class Dashboard extends Component {
 		);
 
 		return (
-			<div className='row'>
+			<div className=''>
 				{/* SideBar */}
 				<div className='ms-sidebar'>
 					<div className='vh-100 bg-brand-quinary'>
