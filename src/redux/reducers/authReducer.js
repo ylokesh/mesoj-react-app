@@ -5,13 +5,14 @@ import updateObject from '../../utils/utility';
 const initialState = {
 	isAuthenticated: false,
 	user: {},
-	standard: ''
+	standard: '',
+	loading: true
 };
 
 export default function(state = initialState, action) {
 	switch (action.type) {
 		case SET_CURRENT_USER:
-			return updateObject(state, {isAuthenticated: !isEmpty(action.payload), user: action.payload});
+			return updateObject(state, {isAuthenticated: !isEmpty(action.payload), user: action.payload, loading: false});
 		case UPDATE_CURRENT_USER_DETAILS:
 			return updateObject(state, {standard: action.payload});
 		default:

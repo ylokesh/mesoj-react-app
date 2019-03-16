@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import {Link} from 'react-router-dom';
 
 import {loadQuiz} from '../../redux/actions/quizAction';
+import Spinner from '../atoms/Spinner';
 
 class Quizzes extends Component {
 	componentDidMount() {
@@ -13,8 +14,10 @@ class Quizzes extends Component {
 
 	renderQuiz() {
 		let {quiz} = this.props;
-		return quiz.length ? (
-			quiz.map((item, idx) => {
+
+		let renderQuizList =
+			quiz.quizList.length &&
+			quiz.quizList.map((item, idx) => {
 				let ref = '/quiz/' + item._id;
 				return (
 					<div key={idx} className='list-group-item'>
@@ -23,10 +26,16 @@ class Quizzes extends Component {
 						</Link>
 					</div>
 				);
-			})
-		) : (
-			<div className='color-brand-primary'>No Quizzes Available.</div>
-		);
+			});
+
+		let noQuizDataAvailable = <div className='color-brand-primary'>No Quizzes Available.</div>;
+
+		if (quiz.loading) {
+			renderQuizList = <Spinner />;
+			noQuizDataAvailable = <Spinner />;
+		}
+
+		return quiz.quizList.length ? renderQuizList : noQuizDataAvailable;
 	}
 
 	render() {
@@ -54,7 +63,8 @@ class Quizzes extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-	quiz: state.quiz
+	quiz: state.quiz,
+	auth: state.auth
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,7 +1,10 @@
 .ms-spinner {
-    margin: 100px auto 0;
+    margin: auto;
     width: 160px;
     text-align: center;
+    height: calc(100% - 64px);
+    display: flex;
+    align-items: center;
 
     & > div {
         width: 14px;

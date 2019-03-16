@@ -9,6 +9,7 @@ import quiz from '../../images/quiz.jpg';
 import learningpath from '../../images/learning-path.png';
 import boardpaper from '../../images/boardpaper.jpg';
 import Select from 'react-select';
+import Spinner from '../atoms/Spinner';
 
 // Actions
 import {updateUserStandard} from '../../redux/actions/authActions';
@@ -41,7 +42,7 @@ class Dashboard extends Component {
 	}
 
 	render() {
-		const {user, standard} = this.props.auth;
+		const {user, standard, loading} = this.props.auth;
 		const userStandardChosen = (localStorage.getItem('userstandard') || standard) !== '' ? true : false;
 
 		const standards = [
@@ -53,7 +54,7 @@ class Dashboard extends Component {
 		];
 		const selectedOption = 'Choose Standard...';
 
-		const standardDashboard = (
+		let standardDashboard = (
 			<div className='ms-student--standard'>
 				<div className='mb-2 color-light-base heading-secondary'>
 					<span className='color-brand-base mr-1'>Welcome</span>
@@ -67,7 +68,7 @@ class Dashboard extends Component {
 			</div>
 		);
 
-		const getStandardFromUser = (
+		let getStandardFromUser = (
 			<div className='ms-dashbaord'>
 				{this.greetUser()}
 				<hr className='bg-dark-decnary mb-5' />
@@ -153,6 +154,11 @@ class Dashboard extends Component {
 				<Section title='Topics Covered' description='Keep track of all the topics you have started studying!' dataTiles={[]} />
 			</div>
 		);
+
+		if (loading) {
+			standardDashboard = <Spinner />;
+			getStandardFromUser = <Spinner />;
+		}
 
 		return (
 			<div className=''>
