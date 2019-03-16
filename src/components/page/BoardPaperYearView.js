@@ -10,7 +10,7 @@ class BoardPaperYears extends Component {
 	componentWillUnmount() {}
 	renderQuestionAns(year) {
 		this.props.actions.updateChosenYear(year);
-		this.props.history.push('/showQuestionAns');
+		this.props.history.push('/boardPapers/showQuestionAns');
 	}
 	renderReqYearList() {
 		let {boardPaper} = this.props;

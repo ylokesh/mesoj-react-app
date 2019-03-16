@@ -5,15 +5,17 @@ import {bindActionCreators} from 'redux';
 // Actions
 import {loadBoardData, updateChosenSubject} from '../../redux/actions/boardPaperActions';
 
+
 class BoardPaper extends Component {
 	componentDidMount() {
 		let {actions} = this.props;
+		//let {standard} = this.props;
 		actions.loadBoardData(10);
 	}
 	componentWillUnmount() {}
 	renderYearList(subj) {
 		this.props.actions.updateChosenSubject(subj);
-		this.props.history.push('/showYearPaper');
+		this.props.history.push('/boardPapers/showYearPaper');
 	}
 	renderSubjectList() {
 		let {boardPaper} = this.props;
@@ -23,8 +25,9 @@ class BoardPaper extends Component {
 		});
 		return reqList.map((item, idx) => {
 			return (
-				<div key={idx} className='list-group-item' onClick={e => this.renderYearList(item)}>
-					{item}
+				<div key={idx} className='list-group-item'>
+					<h2>{item} </h2>
+					<button className="btn btn-primary" onClick={e => this.renderYearList(item)} > START PREPARING </button>
 				</div>
 			);
 		});
@@ -44,7 +47,8 @@ class BoardPaper extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
 	boardPaper: state.boardPapers.boardPapers,
-	subject: state.boardPapers.chosenSubject
+	subject: state.boardPapers.chosenSubject,
+	standard: state.auth.user.standard,
 });
 
 const mapDispatchToProps = dispatch => ({
