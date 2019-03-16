@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import 'react-circular-progressbar/dist/styles.css';
 
 import ReportCard from './reportCard';
-import {loadQuizResponse} from '../../../redux/actions/quiz';
+import {loadQuizResponse} from '../../../redux/actions/report';
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';

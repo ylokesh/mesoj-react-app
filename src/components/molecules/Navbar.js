@@ -28,18 +28,18 @@ class Navbar extends Component {
 
 		const authLinks = (
 			<div className=''>
-				<div className='ms-nav--link ms-dropdown' onClick={this.onLogoutClick.bind(this)} title='Logout'>
+				<div className='ms-nav--link ms-dropdown'>
 					<span className='fas fa-ellipsis-h' />
 					<ul className='ms-dropdown--menu'>
 						<li>
 							<Link to='/profile'>Profile</Link>
 						</li>
 						<li>
-							<Link to='/profile'>Settings</Link>
+							<Link to='/report'>Report</Link>
 						</li>
 						<li>
 							<hr className='mb-2 bg-light-base' />
-							<Link to='/profile'>
+							<Link to='/login' onClick={this.onLogoutClick.bind(this)}>
 								<span className='fas fa-sign-out-alt mr-2' />
 								Log out
 							</Link>

@@ -14,9 +14,12 @@ import BoardPaper from './components/page/BoardPaperView';
 import BoardPaperYears from './components/page/BoardPaperYearView';
 import BoardPaperQuestionAns from './components/page/BoardPaperQuestionAns';
 import PrivateRoute from './components/organisms/PrivateRoute';
-import QuizList from './components/page/quiz/quizList';
+import Report from './components/page/report/list';
 import UserProfile from './components/page/profile/userProfile';
 import ErrorPage from './components/page/Error';
+import Sidebar from './components/organisms/Sidebar';
+import Quizzes from './components/page/Quizzes'; //for quiz list
+import Quiz from './components/page/Quiz';
 
 import {setCurrentUser, logoutuser} from './redux/actions/authActions';
 import setAuthToken from './utils/setAuthToken';
@@ -47,16 +50,18 @@ class App extends Component {
 							<Route exact path='/' component={Landing} />
 							<Route exact path='/signup' component={SignUp} />
 							<Route exact path='/login' component={Login} />
-							<Route exact path='/profile' component={UserProfile} />
-							<Route exact path='/report' component={QuizList} />
 							<div className='ms-app--main'>
-								{/* TODO: Dashboard route should be protected */}
+								<Sidebar />
 								<Switch>
 									<PrivateRoute exact path='/dashboard' component={Dashboard} />
 									<PrivateRoute exact path='/boardPapers' component={BoardPaper} />
 									<PrivateRoute exact path='/boardPapers/showYearPaper' component={BoardPaperYears} />
 									<PrivateRoute exact path='/boardPapers/showQuestionAns' component={BoardPaperQuestionAns} />
-									{/* <Route component={ErrorPage} /> */}
+									<PrivateRoute exact path='/profile' component={UserProfile} />
+									<PrivateRoute exact path='/report' component={Report} />
+									<PrivateRoute exact path='/quiz/:id' component={Quiz} />
+									<PrivateRoute exact path='/quizzes' component={Quizzes} />
+									<Route component={ErrorPage} />
 								</Switch>
 							</div>
 						</div>

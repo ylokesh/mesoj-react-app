@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import CardView from './cardView';
 import ReportCardView from './reportCardView';
-import {loadQuizList} from '../../../redux/actions/quiz';
+import {loadQuizList} from '../../../redux/actions/report';
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
