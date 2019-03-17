@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 
 import {loadQuiz} from '../../redux/actions/quizAction';
 import Spinner from '../atoms/Spinner';
+import quizThumb from '../../images/quiz.jpg';
 
 class Quizzes extends Component {
 	componentDidMount() {
@@ -20,10 +21,25 @@ class Quizzes extends Component {
 			quiz.quizList.map((item, idx) => {
 				let ref = '/quiz/' + item._id;
 				return (
-					<div key={idx} className='list-group-item'>
-						<Link className='nav-link' to={ref}>
-							{item.quizTitle}
-						</Link>
+					<div key={idx} className='col-xs-12 col-sm-6 col-md-6 col-lg-3'>
+						<div className='card mb-4 shadow-sm'>
+							<div className='card-body p-2' href='/#'>
+								<div className='card-image overflow-hidden'>
+									<img className='img-fluid' src={quizThumb} alt='' />
+									<span className='card-cover d-block' />
+									<span className='card-icon color-dark-septnary mb-3 mt-3 heading-secondary'>
+										{/* {item.quizTitle} */}
+										<i class='fas fa-magic' />
+									</span>
+								</div>
+								{/* <span className='d-block txt-tertiary mb-2 color-dark-septnary'>
+									Adaptive, interactive quiz that help students master each concepts.
+								</span> */}
+								<Link className='txt-secondary rounded text-white text-center bg-brand-base p-2 d-block' to={ref}>
+									{item.quizTitle}
+								</Link>
+							</div>
+						</div>
 					</div>
 				);
 			});
@@ -45,15 +61,12 @@ class Quizzes extends Component {
 					<div className='ms-main'>
 						<div className='col-12 p-5 vh-100'>
 							<div className='mb-2 color-light-base heading-secondary'>
-								<span className='far fa-clock mr-3' />
-								<span className='color-brand-base'>Test</span> Your Knowlegde
+								<span className='far fa-clock mr-3 color-brand-secondary' />
+								<span className='color-brand-base' />
+								Quiz
 							</div>
 							<hr className='bg-dark-decnary mb-5' />
-							{this.renderQuiz()}
-							{/* <hr /> */}
-							<button className='btn button-primary mt-5' onClick={e => this.props.history.goBack()}>
-								back
-							</button>
+							<div className='row text-white'>{this.renderQuiz()}</div>
 						</div>
 					</div>
 				</div>
