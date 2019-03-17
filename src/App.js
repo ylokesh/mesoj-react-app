@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
-import './App.css';
 import store from './redux/store';
 
 import asyncComponent from './components/hoc/asyncComponents';
@@ -52,22 +51,14 @@ const asyncQuiz = asyncComponent(() => {
 	return import('./components/page/Quiz');
 });
 
-const asyncError = asyncComponent(() => {
-	return import('./components/page/Error');
-});
-
 const asyncReportList = asyncComponent(() => {
 	return import('./components/page/report/list');
 });
 
 if (localStorage.jwttoken) {
-	// set auth token
 	setAuthToken(localStorage.jwttoken);
-	// Decode the token
 	const decodedToken = jwt_decode(localStorage.jwttoken);
-	// Set current user
 	store.dispatch(setCurrentUser(decodedToken));
-	// Check expired token
 	const currentTime = Date.now() / 1000;
 	if (decodedToken.exp < currentTime) {
 		store.dispatch(logoutuser());
@@ -80,6 +71,7 @@ class App extends Component {
 		return (
 			<Provider store={store}>
 				<Router>
+					{/* TODO: Create HOC For Layout */}
 					<div className='container-fluid ms-app'>
 						<Nav />
 						<div className='ms-app--content row'>

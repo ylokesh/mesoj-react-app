@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import {loginuser} from '../../redux/actions/authActions';
 import TextFieldGroup from '../molecules/TextFieldGroup';
@@ -50,6 +51,7 @@ export class Login extends Component {
 	}
 	render() {
 		let {email, password, errors} = this.state;
+		let {serverError} = this.props.errors;
 		return (
 			<div className='page-login col-12'>
 				<div className='page-landing--content'>
@@ -57,9 +59,13 @@ export class Login extends Component {
 						<div className='uxt-panel uxt-form--login'>
 							<h2 className='heading-secondary mb-4'>Log In</h2>
 							<form className='uxt-form' method='POST' onSubmit={this.onSubmit} noValidate>
-								<div className='uxt-form--error mb-4 d-none'>
-									<span>Oops! That email / password combination is not valid.</span>
+								<div
+									className={classnames('uxt-form--error mb-4', {
+										'd-none': !serverError
+									})}>
+									<span>{serverError}</span>
 								</div>
+
 								<div className='form-group'>
 									<TextFieldGroup
 										type='email'
