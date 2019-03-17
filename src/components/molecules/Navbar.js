@@ -20,10 +20,10 @@ class Navbar extends Component {
 
 		const breadcrumb = (
 			<div className='ms-breadcrumb'>
-				<h2 className='heading-quinary color-light-base'>
+				{/* <h2 className='heading-quinary color-light-base'>
 					<img className='mr-1' src={dashboardIcon} alt='Dashboard' />
 					<span>{pageHeading ? pageHeading : 'Dashboard'}</span>
-				</h2>
+				</h2> */}
 			</div>
 		);
 

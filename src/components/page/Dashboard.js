@@ -88,12 +88,12 @@ class Dashboard extends Component {
 								<div className='card-image overflow-hidden'>
 									<img className='img-fluid' src={learn} alt='' />
 									<span className='card-cover d-block' />
-									<span className='card-icon color-brand-primary mb-3 mt-3 heading-secondary'>Learn</span>
+									<span className='card-icon color-brand-tertiary mb-3 mt-3 heading-secondary'>Learn</span>
 								</div>
 								<span className='d-block txt-tertiary mb-2 color-dark-septnary'>
 									Engaging video lessons that help you visualize each concept.
 								</span>
-								<Link className='txt-secondary rounded text-white text-center bg-brand-primary p-2 d-block' to='/learn'>
+								<Link className='txt-secondary rounded text-white text-center bg-brand-tertiary p-2 d-block' to='/learn'>
 									Start Your Journey
 								</Link>
 							</div>
@@ -122,12 +122,12 @@ class Dashboard extends Component {
 								<div className='card-image overflow-hidden'>
 									<img className='img-fluid' src={quiz} alt='' />
 									<span className='card-cover d-block' />
-									<span className='card-icon color-brand-secondary mb-3 mt-3 heading-secondary'>Quiz</span>
+									<span className='card-icon color-brand-primary mb-3 mt-3 heading-secondary'>Quiz</span>
 								</div>
 								<span className='d-block txt-tertiary mb-2 color-dark-septnary'>
 									Adaptive, interactive quiz that help students master each concepts.
 								</span>
-								<Link className='txt-secondary rounded text-white text-center bg-brand-secondary p-2 d-block' to='/quizzes'>
+								<Link className='txt-secondary rounded text-white text-center bg-brand-primary p-2 d-block' to='/quizzes'>
 									Test Your Knowledge
 								</Link>
 							</div>

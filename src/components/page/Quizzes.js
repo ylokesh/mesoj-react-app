@@ -35,7 +35,7 @@ class Quizzes extends Component {
 								{/* <span className='d-block txt-tertiary mb-2 color-dark-septnary'>
 									Adaptive, interactive quiz that help students master each concepts.
 								</span> */}
-								<Link className='txt-secondary rounded text-white text-center bg-brand-base p-2 d-block' to={ref}>
+								<Link className='txt-secondary rounded text-white text-center bg-brand-primary p-2 d-block' to={ref}>
 									{item.quizTitle}
 								</Link>
 							</div>
@@ -61,10 +61,13 @@ class Quizzes extends Component {
 					<div className='ms-main'>
 						<div className='col-12 p-5 vh-100'>
 							<div className='mb-2 color-light-base heading-secondary'>
-								<span className='far fa-clock mr-3 color-brand-secondary' />
+								<span className='far fa-clock mr-3 color-brand-primary ms-theme--icon' />
 								<span className='color-brand-base' />
 								Quiz
 							</div>
+							<p className='color-light-base'>
+								Motivate students and reclaim your time. Free self-paced quizzes to review, assess, and engage—in class and at home.
+							</p>
 							<hr className='bg-dark-decnary mb-5' />
 							<div className='row text-white'>{this.renderQuiz()}</div>
 						</div>

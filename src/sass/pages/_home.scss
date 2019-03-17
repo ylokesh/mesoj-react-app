@@ -83,15 +83,16 @@
 }
 
 .ms-sidebar {
-    width: 165px;
+    width: 120px;
     position: fixed;
     height: 100vh;
 }
 
 .ms-main {
     position: absolute;
-    margin-left: 165px;
-    width: calc(100% - 165px);
+    margin-left: 130px;
+    width: calc(100% - 120px);
+
     .light-text {
         color: #fff;
     }

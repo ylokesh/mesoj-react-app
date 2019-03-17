@@ -8,7 +8,7 @@
     }
 
     &-cover {
-        background-color: getColor('dark', 'base', 0.9);
+        background-color: getColor('dark', 'base', 0.8);
         position: absolute;
         top: 0;
         bottom: 0;
@@ -43,11 +43,3 @@
         font-size: rem(18px);
     }
 }
-
-// .card-title {
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     transform: translateX(-50%) translateY(-50%);
-//     width: 100%;
-// }

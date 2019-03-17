@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 // Actions
 import {loadBoardData, updateChosenSubject} from '../../redux/actions/boardPaperActions';
 import {updatePageHeading} from '../../redux/actions/commonSectionAction';
-
+import boardpaper from '../../images/boardpaper.jpg';
 
 class BoardPaper extends Component {
 	componentDidMount() {
@@ -27,9 +27,20 @@ class BoardPaper extends Component {
 		});
 		return reqList.map((item, idx) => {
 			return (
-				<div key={idx} className='list-group-item white-sect'>
-					<h2 class="uxt-form--label">{item} </h2>
-					<button className="button button-primary" onClick={e => this.renderYearList(item)} > START PREPARING </button>
+				<div key={idx} className='col-xs-12 col-sm-6 col-md-6 col-lg-3'>
+					<div className='card mb-4 shadow-sm'>
+						<div className='card-body p-2' href='/#'>
+							<div className='card-image overflow-hidden'>
+								<img className='img-fluid' src={boardpaper} alt='' />
+								<span className='card-cover d-block' />
+								<span className='card-icon color-dark-septnary mb-3 mt-3 heading-secondary'>{item}</span>
+							</div>
+							<button className='btn btn-block button button-primary' onClick={e => this.renderYearList(item)}>
+								{' '}
+								START PREPARING{' '}
+							</button>
+						</div>
+					</div>
 				</div>
 			);
 		});
@@ -38,19 +49,39 @@ class BoardPaper extends Component {
 		let standard = 10;
 		//let {standard} = this.props;
 		const {boardPaper} = this.props;
-		if(standard !== 10 &&  standard !== 12)
-		return (
-			<div className='row'>
-				<div className='ms-main'>
-					<div className='col-12 p-5 vh-100 light-text'>No Relevant Data</div>
+		if (standard !== 10 && standard !== 12)
+			return (
+				<div className='ms-main ms-paper'>
+					<div className='col-12 p-5 vh-100 light-text'>
+						<div className='mb-2 color-light-base heading-secondary'>
+							<span className='far fa-clock mr-3 color-brand-secondary ms-theme--icon' />
+							<span className='color-brand-base' />
+							Quiz
+						</div>
+						<p className='color-light-base'>
+							Motivate students and reclaim your time. Free self-paced quizzes to review, assess, and engage—in class and at home.
+						</p>
+						<hr className='bg-dark-decnary mb-5' />
+						<div className='row text-white'>No Relevant Data</div>
+					</div>
 				</div>
-			</div>
-		);
+			);
 		if (boardPaper.length === 0) return '';
 		return (
-			<div className='row'>
-				<div className='ms-main'>
-					<div className='col-12 p-5 vh-100'>{this.renderSubjectList()}</div>
+			<div className='ms-main ms-paper'>
+				<div className='col-12 p-5 vh-100 light-text'>
+					<div className='mb-2 heading-secondary'>
+						<span className='fas fa-chalkboard mr-3 color-brand-base ms-theme--icon' />
+						<span className='color-brand-base' />
+						Board Papers
+					</div>
+
+					<p className='color-light-base pr-5 w-90'>
+						Don't scratch your head for not able to solve questions for board examination questions. Start practicing CBSE sample paper.
+					</p>
+
+					<hr className='bg-dark-decnary mb-5' />
+					<div className='row text-white'>{this.renderSubjectList()}</div>
 				</div>
 			</div>
 		);
@@ -60,7 +91,7 @@ class BoardPaper extends Component {
 const mapStateToProps = (state, ownProps) => ({
 	boardPaper: state.boardPapers.boardPapers,
 	subject: state.boardPapers.chosenSubject,
-	standard: state.auth.user.standard,
+	standard: state.auth.user.standard
 });
 
 const mapDispatchToProps = dispatch => ({
