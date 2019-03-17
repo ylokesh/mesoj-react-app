@@ -6,3 +6,5 @@ export const UPDATE_CHOSEN_SUBJECT = 'UPDATE_CHOSEN_SUBJECT';
 export const UPDATE_CHOSEN_YEAR = 'UPDATE_CHOSEN_YEAR';
 export const LOAD_QUIZ = 'LOAD_QUIZ';
 export const LAUNCH_QUIZ = 'LAUNCH_QUIZ';
+export const LOAD_SUBJECT = 'LOAD_SUBJECT';
+export const LOAD_TOPICS = 'LOAD_TOPICS';

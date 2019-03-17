@@ -1,8 +1,9 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import authReducer from './authReducer';
 import errorReducer from './errorReducer';
 import boardPaperReducer from './boardPaperReducer';
 import quizReducer from './quizReducer';
+import learnReducer from './learnReducer';
 
 import {
 	reportReducer,
@@ -12,8 +13,8 @@ import {
 	totalQuizCountReducer,
 	quizResponseReducer
 } from './report';
-import {reqStatusReducer} from './req-status';
-import {profileReducer} from './profile';
+import { reqStatusReducer } from './req-status';
+import { profileReducer } from './profile';
 
 export default combineReducers({
 	auth: authReducer,
@@ -27,5 +28,6 @@ export default combineReducers({
 	totalQuizPercent: totalQuizPercentReducer,
 	totalQuizCount: totalQuizCountReducer,
 	userProfile: profileReducer,
-	quiz: quizReducer
+	quiz: quizReducer,
+	learn: learnReducer,
 });
