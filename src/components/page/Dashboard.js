@@ -13,8 +13,13 @@ import Spinner from '../atoms/Spinner';
 
 // Actions
 import {updateUserStandard} from '../../redux/actions/authActions';
+import {updatePageHeading} from '../../redux/actions/commonSectionAction';
 
 class Dashboard extends Component {
+	componentDidMount() {
+		this.props.updatePageHeading('Dashboard');
+	}
+
 	greetUser() {
 		const {user} = this.props.auth;
 
@@ -100,7 +105,7 @@ class Dashboard extends Component {
 								<div className='card-image overflow-hidden'>
 									<img className='img-fluid' src={boardpaper} alt='' />
 									<span className='card-cover d-block' />
-									<span className='card-icon color-brand-base mb-3 mt-3 heading-secondary'>Practice</span>
+									<span className='card-icon color-brand-base mb-3 mt-3 heading-secondary'>Board Papers</span>
 								</div>
 								<span className='d-block txt-tertiary mb-2 color-dark-septnary'>
 									Do practice with previous years board papers to prepare well for exams.
@@ -176,5 +181,5 @@ const mapStateToProps = state => ({
 
 export default connect(
 	mapStateToProps,
-	{updateUserStandard}
+	{updateUserStandard, updatePageHeading}
 )(withRouter(Dashboard));
