@@ -3,6 +3,7 @@ import authReducer from './authReducer';
 import errorReducer from './errorReducer';
 import boardPaperReducer from './boardPaperReducer';
 import quizReducer from './quizReducer';
+import commonSectionReducer from './commonSectionReducer';
 
 import {
 	reportReducer,
@@ -27,5 +28,6 @@ export default combineReducers({
 	totalQuizPercent: totalQuizPercentReducer,
 	totalQuizCount: totalQuizCountReducer,
 	userProfile: profileReducer,
-	quiz: quizReducer
+	quiz: quizReducer,
+	commonSection : commonSectionReducer
 });

@@ -16,12 +16,13 @@ class Navbar extends Component {
 	}
 	render() {
 		const {isAuthenticated, user} = this.props.auth;
+		let {pageHeading} = this.props;
 
 		const breadcrumb = (
 			<div className='ms-breadcrumb'>
 				<h2 className='heading-quinary color-light-base'>
 					<img className='mr-1' src={dashboardIcon} alt='Dashboard' />
-					<span>DashBoard</span>
+					<span>{pageHeading ? pageHeading: 'Dashboard'}</span>
 				</h2>
 			</div>
 		);
@@ -92,7 +93,8 @@ Navbar.propTypes = {
 };
 
 const mapStateToProps = state => ({
-	auth: state.auth
+	auth: state.auth,
+	pageHeading: state.commonSection.pageHeading,
 });
 
 export default connect(

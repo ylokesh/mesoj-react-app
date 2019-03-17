@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios from '../../utils/axios';
 import { LOAD_QUIZ, LAUNCH_QUIZ } from './types';
 
 
 export function loadQuiz(type, size) {
     function getQuiz(type, size) {
-        return axios.get('http://localhost:9000/api/quiz/list');
+        return axios.get('/api/quiz/list');
     }
     // thunk
     return function (dispatch) {
@@ -27,7 +27,7 @@ export function loadQuiz(type, size) {
 export function launchQuiz(id) {
     function getQuizQuestions(id) {
         // return axios.get('http://localhost:9000/api/quiz/list');
-        return axios.get('http://localhost:9000/api/quizQuestions/list?quiz_id='+id);
+        return axios.get('/api/quiz/'+id);
     }
     // thunk
     return function (dispatch) {

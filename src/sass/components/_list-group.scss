@@ -13,5 +13,14 @@
             background-color: #2b2b2b;
             border-color: transparent;
         }
+        &.white-sect {
+            background: #fff;
+        }
+        .index-holder {
+            display: inline-block;
+        }
+        .year-holder {
+            display: inline-block;
+        }
     }
 }
