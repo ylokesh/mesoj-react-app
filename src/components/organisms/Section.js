@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Section({title, description, dataTiles}) {
+const Section = ({title, description, dataTiles}) => {
 	return (
 		<div className='mt-5'>
 			<h3 className='heading-tertiary text-white mb-3'>
@@ -11,8 +11,10 @@ export default function Section({title, description, dataTiles}) {
 			{populateDataTiles(dataTiles)}
 		</div>
 	);
-}
+};
 
 const populateDataTiles = dataTiles => {
 	//..
 };
+
+export default Section;

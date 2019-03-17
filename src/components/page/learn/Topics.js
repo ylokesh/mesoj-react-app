@@ -20,7 +20,7 @@ class Topics extends Component {
         })
     }
     renderChapter() {
-        let { learn, match } = this.props;
+        let { learn } = this.props;
         let renderLearnList =
             learn.topicList.length &&
             learn.topicList.map((item, idx) => {

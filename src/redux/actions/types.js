@@ -8,3 +8,5 @@ export const LOAD_QUIZ = 'LOAD_QUIZ';
 export const LAUNCH_QUIZ = 'LAUNCH_QUIZ';
 export const LOAD_SUBJECT = 'LOAD_SUBJECT';
 export const LOAD_TOPICS = 'LOAD_TOPICS';
+export const UPDATE_QUESTION_NUM = 'UPDATE_QUESTION_NUM';
+export const UPDATE_PAGE_HEADING = 'UPDATE_PAGE_HEADING';

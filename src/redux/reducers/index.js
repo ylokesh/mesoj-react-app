@@ -4,6 +4,7 @@ import errorReducer from './errorReducer';
 import boardPaperReducer from './boardPaperReducer';
 import quizReducer from './quizReducer';
 import learnReducer from './learnReducer';
+import commonSectionReducer from './commonSectionReducer';
 
 import {
 	reportReducer,
@@ -30,4 +31,5 @@ export default combineReducers({
 	userProfile: profileReducer,
 	quiz: quizReducer,
 	learn: learnReducer,
+	commonSection: commonSectionReducer
 });

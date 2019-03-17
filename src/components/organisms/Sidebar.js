@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Sidebar() {
+const Sidebar = () => {
 	return (
 		<div className='ms-sidebar'>
 			<div className='vh-100 bg-brand-quinary'>
@@ -11,18 +11,20 @@ export default function Sidebar() {
 					</a>
 					<a href='/learn' className='list-group-item list-group-item-action'>
 						<span className='fa fa-book-open mr-3' />
-						Chapters
+						Learn
+					</a>
+					<a href='/boardPapers' className='list-group-item list-group-item-action'>
+						<span className='fas fa-chalkboard mr-3' />
+						Papers
 					</a>
 					<a href='/quizzes' className='list-group-item list-group-item-action'>
 						<span className='far fa-clock mr-3' />
 						Quiz
 					</a>
-					<a href='/boardPapers' className='list-group-item list-group-item-action'>
-						<span className='fas fa-chalkboard mr-3' />
-						Board Papers
-					</a>
 				</div>
 			</div>
 		</div>
 	);
-}
+};
+
+export default Sidebar;

@@ -3,7 +3,7 @@
 const axios = require('axios');
 
 const client = axios.create({
-	baseURL: 'http://localhost:9000'
+	baseURL: process.env.NODE_ENV === 'production' ? process.env.AXIOS_BASE_URL : 'http://localhost:9000'
 });
 
 module.exports = client;

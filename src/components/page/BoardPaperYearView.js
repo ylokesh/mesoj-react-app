@@ -4,13 +4,18 @@ import {bindActionCreators} from 'redux';
 
 // Actions
 import {loadBoardData, updateChosenYear} from '../../redux/actions/boardPaperActions';
+import {updatePageHeading} from '../../redux/actions/commonSectionAction';
 
 class BoardPaperYears extends Component {
-	componentDidMount() {}
+	componentDidMount() {
+		let {actions} = this.props;
+		let {subject} = this.props;
+		actions.updatePageHeading(subject +' BoardPapers');
+	}
 	componentWillUnmount() {}
 	renderQuestionAns(year) {
 		this.props.actions.updateChosenYear(year);
-		this.props.history.push('/showQuestionAns');
+		this.props.history.push('/boardPapers/showQuestionAns');
 	}
 	renderReqYearList() {
 		let {boardPaper} = this.props;
@@ -21,8 +26,9 @@ class BoardPaperYears extends Component {
 		});
 		return reqList.map((item, idx) => {
 			return (
-				<div key={idx} className='list-group-item' onClick={e => this.renderQuestionAns(item)}>
-					{item}
+				<div key={idx} className='list-group-item  white-sect' onClick={e => this.renderQuestionAns(item)}>
+					<div className='index-holder'>{idx + 1}</div>
+					<div className='year-holder'>{item}</div>
 				</div>
 			);
 		});
@@ -47,7 +53,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	actions: bindActionCreators({loadBoardData, updateChosenYear}, dispatch)
+	actions: bindActionCreators({loadBoardData, updateChosenYear, updatePageHeading}, dispatch)
 });
 
 // `connect` returns a new function that accepts the component to wrap:
