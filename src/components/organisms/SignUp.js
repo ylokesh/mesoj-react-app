@@ -111,14 +111,15 @@ class SignUp extends Component {
 								<span>or</span>
 							</div>
 							<div className='text-center'>
-								<Button
+								{/* TODO: Google & Facebook based signup with Passport JS */}
+								{/* <Button
 									cssClass='text-left button-social--facebook mb-3'
 									onClick=''
 									type='button'
 									value='Sign up with Facebook'
 									block
 								/>
-								<Button cssClass='text-left button-social--google mb-4' onClick='' type='button' value='Sign up with Google' block />
+								<Button cssClass='text-left button-social--google mb-4' onClick='' type='button' value='Sign up with Google' block /> */}
 								<p className='txt-secondary m-0'>
 									Already have an account?{' '}
 									<Link className='txt-secondary' to='/login'>

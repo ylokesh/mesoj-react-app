@@ -28,6 +28,7 @@ class QuizList extends Component {
 	}
 	renderQuiz() {
 		let {quizList} = this.props;
+		debugger;
 		if (quizList.length !== 0) {
 			return quizList.map((item, idx) => {
 				return (
@@ -60,7 +61,7 @@ class QuizList extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
 	quizData: state,
-	quizList: state.quizList
+	quizList: state.quizList.quizList
 });
 
 const mapDispatchToProps = dispatch => ({
