@@ -35,7 +35,17 @@ class BoardPaper extends Component {
 		});
 	}
 	render() {
+		let standard = 10;
+		//let {standard} = this.props;
 		const {boardPaper} = this.props;
+		if(standard !== 10 &&  standard !== 12)
+		return (
+			<div className='row'>
+				<div className='ms-main'>
+					<div className='col-12 p-5 vh-100 light-text'>No Relevant Data</div>
+				</div>
+			</div>
+		);
 		if (boardPaper.length === 0) return '';
 		return (
 			<div className='row'>
