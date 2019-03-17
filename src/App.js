@@ -59,6 +59,14 @@ const asyncReportList = asyncComponent(() => {
 	return import('./components/page/report/list');
 });
 
+const asyncLearn = asyncComponent(() => {
+	return import('./components/page/learn/Learn');
+});
+
+const asyncTopics = asyncComponent(() => {
+	return import('./components/page/learn/Topics');
+});
+
 if (localStorage.jwttoken) {
 	setAuthToken(localStorage.jwttoken);
 	const decodedToken = jwt_decode(localStorage.jwttoken);
@@ -94,6 +102,8 @@ class App extends Component {
 									<PrivateRoute exact path='/report' component={asyncReportList} />
 									<PrivateRoute exact path='/quiz/:id' component={asyncQuiz} />
 									<PrivateRoute exact path='/quizzes' component={asyncQuizzes} />
+									<PrivateRoute exact path='/learn' component={asyncLearn} />
+									<PrivateRoute exact path='/subject/:title/:id' component={asyncTopics} />
 									{/* <Route component={asyncError} /> */}
 								</Switch>
 							</div>

@@ -9,7 +9,7 @@ const Sidebar = () => {
 						<span className='fa fa-home mr-3' />
 						Home
 					</a>
-					<a href='/#' className='list-group-item list-group-item-action'>
+					<a href='/learn' className='list-group-item list-group-item-action'>
 						<span className='fa fa-book-open mr-3' />
 						Learn
 					</a>

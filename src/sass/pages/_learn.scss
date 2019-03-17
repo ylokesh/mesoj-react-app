@@ -1,0 +1,37 @@
+.learn-container{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+    .count{
+        font-size: .6em;
+    }
+
+}
+.list-subject {
+    background: tomato;
+    padding: 5px;
+    width: 200px;
+    height: auto;
+    margin-top: 10px;
+    
+    line-height: 80px;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+
+}
+.subject-link {
+    color: lightskyblue;
+    font-weight: bold;
+    font-size: .5em;
+}
