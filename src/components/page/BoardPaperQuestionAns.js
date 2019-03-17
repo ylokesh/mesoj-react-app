@@ -40,9 +40,9 @@ class BoardPaperQuestionAns extends Component {
         this.questionAnsListLength = reqList.length;
         return (
             <div className='list-group-item'>
-                <ul>
-                    <li>{reqList[i].question}</li>
-                    <li>{reqList[i].answer}</li>
+                <ul className='question-ans-holder'>
+                    <li className='question-holder'>{reqList[i].question}</li>
+                    <li className='ans-holder'>{reqList[i].answer}</li>
                 </ul>
                 { this.questnCount > 0 ? <button className='button button-primary left-btn' onClick={e => this.showPrevQuestn(i)} > Prev </button> : ''}
                 { this.questnCount < this.questionAnsListLength-1 ? <button className='button button-primary' onClick={e => this.showNextQuestn(i)} > Next </button> : ''  }
