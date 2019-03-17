@@ -92,6 +92,9 @@
     position: absolute;
     margin-left: 165px;
     width: calc(100% - 165px);
+    .light-text {
+        color: #fff;
+    }
 }
 
 .page-landing,
