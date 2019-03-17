@@ -24,3 +24,8 @@ export function updateChosenYear(value) {
 		dispatch({type: UPDATE_CHOSEN_YEAR, payload: value});
 	};
 }
+/*export function updateQuestionNo(value) {
+	return function(dispatch) {
+		dispatch({type: UPDATE_QUESTION_NUM, payload: value});
+	};
+}*/

@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 
 // Actions
 import {loadBoardData, updateChosenSubject} from '../../redux/actions/boardPaperActions';
+import {updatePageHeading} from '../../redux/actions/commonSectionAction';
 
 
 class BoardPaper extends Component {
@@ -11,6 +12,7 @@ class BoardPaper extends Component {
 		let {actions} = this.props;
 		//let {standard} = this.props;
 		actions.loadBoardData(10);
+		actions.updatePageHeading('BoardPapers');
 	}
 	componentWillUnmount() {}
 	renderYearList(subj) {
@@ -25,9 +27,9 @@ class BoardPaper extends Component {
 		});
 		return reqList.map((item, idx) => {
 			return (
-				<div key={idx} className='list-group-item'>
-					<h2>{item} </h2>
-					<button className="btn btn-primary" onClick={e => this.renderYearList(item)} > START PREPARING </button>
+				<div key={idx} className='list-group-item white-sect'>
+					<h2 class="uxt-form--label">{item} </h2>
+					<button className="button button-primary" onClick={e => this.renderYearList(item)} > START PREPARING </button>
 				</div>
 			);
 		});
@@ -52,7 +54,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	actions: bindActionCreators({loadBoardData, updateChosenSubject}, dispatch)
+	actions: bindActionCreators({loadBoardData, updateChosenSubject, updatePageHeading}, dispatch)
 });
 
 // `connect` returns a new function that accepts the component to wrap:

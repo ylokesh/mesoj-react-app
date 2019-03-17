@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 
 // Actions
 import {loadBoardData, updateChosenYear} from '../../redux/actions/boardPaperActions';
+import {updatePageHeading} from '../../redux/actions/commonSectionAction';
 
 class BoardPaperQuestionAns extends Component {
     constructor () {
@@ -13,16 +14,19 @@ class BoardPaperQuestionAns extends Component {
         this.questionAnsListLength = 0;
     }
     componentDidMount() {
+		let {actions} = this.props;
+        let {subject} = this.props;
+        let {year} = this.props;
+		actions.updatePageHeading(subject + ' '+ year +' BoardPapers');
     }
     componentWillUnmount() {
     }
     showNextQuestn(i) {
-        if(this.questionAnsListLength-1 > i) {
-            this.questnCount = i+1;
-        }
-        else{
-            this.btnText = 'Finish';
-        }
+        this.questnCount = i+1;
+        this.forceUpdate();
+    }
+    showPrevQuestn(i) {
+        this.questnCount = i-1;
         this.forceUpdate();
     }
 	renderQuestionAnsList() {
@@ -34,17 +38,17 @@ class BoardPaperQuestionAns extends Component {
             return (item.subject === subject && item.year === year)
         });
         this.questionAnsListLength = reqList.length;
-        //return reqList.map((item, idx) => {
-            return (
-                <div className="list-group-item">
-                    <ul>
-                        <li>{reqList[i].question}</li>
-                        <li>{reqList[i].answer}</li>
-                    </ul>
-                    <button className="btn btn-primary" onClick={e => this.showNextQuestn(i)} > {this.btnText} </button>
-                </div>
-            )
-        //});
+        return (
+            <div className='list-group-item'>
+                <ul>
+                    <li>{reqList[i].question}</li>
+                    <li>{reqList[i].answer}</li>
+                </ul>
+                { this.questnCount > 0 ? <button className='button button-primary left-btn' onClick={e => this.showPrevQuestn(i)} > Prev </button> : ''}
+                { this.questnCount < this.questionAnsListLength-1 ? <button className='button button-primary' onClick={e => this.showNextQuestn(i)} > Next </button> : ''  }
+                           
+            </div>
+        )
 	}
 	render() {
         const {boardPaper} = this.props;
@@ -67,7 +71,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({ loadBoardData, updateChosenYear }, dispatch)
+    actions: bindActionCreators({ loadBoardData, updateChosenYear, updatePageHeading }, dispatch)
 })
 
 // `connect` returns a new function that accepts the component to wrap:
