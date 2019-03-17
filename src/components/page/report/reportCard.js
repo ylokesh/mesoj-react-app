@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {loadQuizResponse, updateQuizCorrect, updateQuizInCorrect, updateQuizPercent, updateQuizCount} from '../../../redux/actions/quiz';
+import {loadQuizResponse, updateQuizCorrect, updateQuizInCorrect, updateQuizPercent, updateQuizCount} from '../../../redux/actions/report';
 import ReportCardView from './reportCardView';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';

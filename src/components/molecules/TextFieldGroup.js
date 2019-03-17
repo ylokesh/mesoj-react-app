@@ -24,7 +24,7 @@ const TextFieldGroup = ({type, name, placeholder, error, disabled, focus, value,
 				aria-describedby={aria}
 			/>
 			{error && <div className='invalid-feedback'>{error}</div>}
-			{info && <div className='form-text text-muted txt-teritiary'>{info}</div>}
+			{info && <div className='form-text form-text--info text-muted txt-teritiary'>{info}</div>}
 		</div>
 	);
 };

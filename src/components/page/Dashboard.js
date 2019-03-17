@@ -9,6 +9,7 @@ import quiz from '../../images/quiz.jpg';
 import learningpath from '../../images/learning-path.png';
 import boardpaper from '../../images/boardpaper.jpg';
 import Select from 'react-select';
+import Spinner from '../atoms/Spinner';
 
 // Actions
 import {updateUserStandard} from '../../redux/actions/authActions';
@@ -41,7 +42,7 @@ class Dashboard extends Component {
 	}
 
 	render() {
-		const {user, standard} = this.props.auth;
+		const {user, standard, loading} = this.props.auth;
 		const userStandardChosen = (localStorage.getItem('userstandard') || standard) !== '' ? true : false;
 
 		const standards = [
@@ -53,7 +54,7 @@ class Dashboard extends Component {
 		];
 		const selectedOption = 'Choose Standard...';
 
-		const standardDashboard = (
+		let standardDashboard = (
 			<div className='ms-student--standard'>
 				<div className='mb-2 color-light-base heading-secondary'>
 					<span className='color-brand-base mr-1'>Welcome</span>
@@ -67,7 +68,7 @@ class Dashboard extends Component {
 			</div>
 		);
 
-		const getStandardFromUser = (
+		let getStandardFromUser = (
 			<div className='ms-dashbaord'>
 				{this.greetUser()}
 				<hr className='bg-dark-decnary mb-5' />
@@ -121,7 +122,7 @@ class Dashboard extends Component {
 								<span className='d-block txt-tertiary mb-2 color-dark-septnary'>
 									Adaptive, interactive quiz that help students master each concepts.
 								</span>
-								<Link className='txt-secondary rounded text-white text-center bg-brand-secondary p-2 d-block' to='/quiz'>
+								<Link className='txt-secondary rounded text-white text-center bg-brand-secondary p-2 d-block' to='/quizzes'>
 									Test Your Knowledge
 								</Link>
 							</div>
@@ -154,39 +155,13 @@ class Dashboard extends Component {
 			</div>
 		);
 
+		if (loading) {
+			standardDashboard = <Spinner />;
+			getStandardFromUser = <Spinner />;
+		}
+
 		return (
 			<div className=''>
-				{/* SideBar */}
-				<div className='ms-sidebar'>
-					<div className='vh-100 bg-brand-quinary'>
-						<div className='list-group list-group-flush'>
-							<a href='/#' className='list-group-item list-group-item-action active'>
-								<span className='fa fa-home mr-3' />
-								Home
-							</a>
-							<a href='/#' className='list-group-item list-group-item-action'>
-								<span className='fa fa-book-open mr-3' />
-								Chapters
-							</a>
-							<a href='/#' className='list-group-item list-group-item-action'>
-								<span className='far fa-clock mr-3' />
-								Quiz
-							</a>
-							<a href='/boardPapers' className='list-group-item list-group-item-action'>
-								<span className='fas fa-chalkboard mr-3' />
-								Board Papers
-							</a>
-							<a href='/report' className='list-group-item list-group-item-action'>
-								<span className='fas fa-bookmark mr-3' />
-								Report
-							</a>
-							<a href='/profile' className='list-group-item list-group-item-action'>
-								<span className='fas fa-bookmark mr-3' />
-								Profile
-							</a>
-						</div>
-					</div>
-				</div>
 				<div className='ms-main'>
 					<div className='col-12 p-5 vh-100'>{userStandardChosen ? getStandardFromUser : standardDashboard}</div>
 				</div>
