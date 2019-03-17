@@ -102,7 +102,7 @@ export class Login extends Component {
 								</div>
 							</form>
 							<div className='uxt-forgetPassword text-center mb-3'>
-								<Link className='txt-secondary' to='/forgotpassword'>
+								<Link className='txt-secondary' to='/forgot'>
 									Forgot Password?
 								</Link>
 							</div>

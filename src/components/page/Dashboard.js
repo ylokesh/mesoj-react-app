@@ -105,7 +105,7 @@ class Dashboard extends Component {
 								<div className='card-image overflow-hidden'>
 									<img className='img-fluid' src={boardpaper} alt='' />
 									<span className='card-cover d-block' />
-									<span className='card-icon color-brand-base mb-3 mt-3 heading-secondary'>Board Papers</span>
+									<span className='card-icon color-brand-base mb-3 mt-3 heading-secondary'>Papers</span>
 								</div>
 								<span className='d-block txt-tertiary mb-2 color-dark-septnary'>
 									Do practice with previous years board papers to prepare well for exams.
@@ -133,7 +133,8 @@ class Dashboard extends Component {
 							</div>
 						</div>
 					</div>
-					<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3'>
+					{/* TODO: Implement Premium User Access */}
+					{/* <div className='col-xs-12 col-sm-6 col-md-6 col-lg-3'>
 						<div className='card mb-4 shadow-sm'>
 							<div className='card-body p-2' href='/#'>
 								<div className='card-image overflow-hidden'>
@@ -149,14 +150,15 @@ class Dashboard extends Component {
 								</Link>
 							</div>
 						</div>
-					</div>
+					</div> */}
 				</div>
 				<Section
 					title='Recent Activities'
 					description='A handy log of all your chapters covered, quiz, recent bookmarks will populate here.'
 					dataTiles={[]}
 				/>
-				<Section title='Topics Covered' description='Keep track of all the topics you have started studying!' dataTiles={[]} />
+				<Section title='Learn Insights' description='Keep track of all the topics you have finished or started studying!' dataTiles={[]} />
+				<Section title='Quiz Insights' description='Keep track of all the quizzes you have attempted!' dataTiles={[]} />
 			</div>
 		);
 

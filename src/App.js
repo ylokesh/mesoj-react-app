@@ -23,6 +23,10 @@ const asyncSignup = asyncComponent(() => {
 	return import('./components/organisms/SignUp');
 });
 
+const asyncForgotPassword = asyncComponent(() => {
+	return import('./components/organisms/ForgotPassword');
+});
+
 const asyncDashboard = asyncComponent(() => {
 	return import('./components/page/Dashboard');
 });
@@ -78,6 +82,7 @@ class App extends Component {
 							<Route exact path='/' component={Landing} />
 							<Route exact path='/signup' component={asyncSignup} />
 							<Route exact path='/login' component={asyncLogin} />
+							<Route exact path='/forgot' component={asyncForgotPassword} />
 							<div className='ms-app--main'>
 								<Sidebar />
 								<Switch>
