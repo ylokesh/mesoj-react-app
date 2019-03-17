@@ -34,7 +34,7 @@ export const loginuser = userData => dispatch => {
 			} else {
 				dispatch({
 					type: GET_ERRORS,
-					payload: {serverError: 'Sorry for inconvenience. Please try again later.'}
+					payload: {serverError: 'No server is currently avaiable to serve your request. We did not anticipite this takes so long'}
 				});
 			}
 		})

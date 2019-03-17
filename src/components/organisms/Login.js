@@ -60,10 +60,12 @@ export class Login extends Component {
 							<h2 className='heading-secondary mb-4'>Log In</h2>
 							<form className='uxt-form' method='POST' onSubmit={this.onSubmit} noValidate>
 								<div
-									className={classnames('uxt-form--error mb-4', {
+									className={classnames('alert-danger txt-secondary color-error-base mb-4 p-2 border-radius-2', {
 										'd-none': !serverError
 									})}>
-									<span>{serverError}</span>
+									<span>
+										<strong>{serverError}</strong>
+									</span>
 								</div>
 
 								<div className='form-group'>
