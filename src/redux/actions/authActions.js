@@ -25,16 +25,18 @@ export const loginuser = userData => dispatch => {
 	axios
 		.post('/api/users/login', userData)
 		.then(res => {
-			// Save Token to localstorage
-			const {token} = res.data;
-			// Set Token to Localstorage
-			localStorage.setItem('jwttoken', token);
-			// Set Token to Auth Header
-			setAuthToken(token);
-			// Decode Token to get user data
-			const decoded = jwt_decode(token);
-			// Set current user
-			dispatch(setCurrentUser(decoded));
+			if (typeof res.data === 'object') {
+				const {token} = res.data;
+				localStorage.setItem('jwttoken', token);
+				setAuthToken(token);
+				const decoded = jwt_decode(token);
+				dispatch(setCurrentUser(decoded));
+			} else {
+				dispatch({
+					type: GET_ERRORS,
+					payload: {serverError: 'Sorry for inconvenience. Please try again later.'}
+				});
+			}
 		})
 		.catch(err => {
 			dispatch({
