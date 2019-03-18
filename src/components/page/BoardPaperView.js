@@ -70,7 +70,7 @@ class BoardPaper extends Component {
 		return (
 			<div className='ms-main ms-paper'>
 				<div className='col-12 p-5 vh-100 light-text'>
-					<div className='mb-2 heading-secondary'>
+					<div className='mb-2 color-brand-base heading-secondary'>
 						<span className='fas fa-chalkboard mr-3 color-brand-base ms-theme--icon' />
 						<span className='color-brand-base' />
 						Board Papers

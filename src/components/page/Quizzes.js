@@ -60,7 +60,7 @@ class Quizzes extends Component {
 				<div className='ms-quiz'>
 					<div className='ms-main'>
 						<div className='col-12 p-5 vh-100'>
-							<div className='mb-2 color-light-base heading-secondary'>
+							<div className='mb-2 color-brand-primary heading-secondary'>
 								<span className='far fa-clock mr-3 color-brand-primary ms-theme--icon' />
 								<span className='color-brand-base' />
 								Quiz
