@@ -1,6 +1,8 @@
 .react-quiz-container {
     margin: 20px;
-    color: getColor('light', 'base', 'light');
+    color: getColor('dark', 'base', 'light');
+    background-color: getColor('light', 'base');
+    padding: 20px;
 
     .startQuizWrapper {
         margin-top: 10px;
@@ -31,10 +33,9 @@
         border: 1px solid #e8e8e8;
         font-size: 15px;
         display: block;
-        background-color: getColor('light', 'base', 'light');
-
+        max-width: 500px;
         &.correct {
-            background: green;
+            background: #079fff;
             color: white;
         }
     }
@@ -48,7 +49,7 @@
     }
 
     .correct {
-        background: green;
+        background:#079fff;
     }
 
     .incorrect {
