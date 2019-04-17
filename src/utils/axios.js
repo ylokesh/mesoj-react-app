@@ -3,7 +3,7 @@
 const axios = require('axios');
 
 const client = axios.create({
-	baseURL: 'https://mesoj-services.azurewebsites.net'
+	baseURL: 'https://mesojservices.azurewebsites.net'
 });
 
 module.exports = client;
